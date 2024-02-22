@@ -21,7 +21,6 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         
     }
-   
     
     @IBAction func nextBtnClicked(_ sender: Any) {
     }
