@@ -19,6 +19,17 @@ class OnboardingViewController: UIViewController {
     // Declaring a property to hold onboarding slides
     var slides: [OnboardingSlide] = []
     
+    var currentPage = 0 {
+        didSet {
+            pageControl.currentPage = currentPage
+            if currentPage == slides.count - 1 {
+                nextButton.setTitle("Start Playing", for: .normal)
+            } else {
+                nextButton.setTitle("Next", for: .normal)
+            }
+        }
+    }
+    
     // Method called after the view controller's view is loaded into memory
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +48,13 @@ class OnboardingViewController: UIViewController {
     
     // Action method called when the next button is clicked
     @IBAction func nextBtnClicked(_ sender: Any) {
-        // Implement code to handle navigation to the next slide
+        if currentPage == slides.count - 1 {
+            print("Go to the next page")
+        } else {
+            currentPage += 1
+            let indexPath = IndexPath(item: currentPage, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
     }
     
 }
@@ -60,6 +77,11 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     // Method to specify the size of items in the collection view
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let width = scrollView.frame.width
+        currentPage = Int(scrollView.contentOffset.x / width)
     }
 }
 
