@@ -40,16 +40,21 @@ class OnboardingViewController: UIViewController {
         
         // Initializing the array of slides with dummy data
         slides = [
-            OnboardingSlide(title: "Title 1", description: "Description 1", image: #imageLiteral(resourceName: "slide1.png")),
+            OnboardingSlide(title: "WELCOME TO ATHENA!", description: "Are you ready to test the power of your mind?", image: #imageLiteral(resourceName: "slide1")),
             OnboardingSlide(title: "Title 2", description: "Description 2", image: #imageLiteral(resourceName: "slide2.png")),
             OnboardingSlide(title: "Title 3", description: "Description 3", image: #imageLiteral(resourceName: "slide3.png"))
         ]
+        
+        pageControl.numberOfPages = slides.count
     }
     
     // Action method called when the next button is clicked
     @IBAction func nextBtnClicked(_ sender: Any) {
         if currentPage == slides.count - 1 {
-            print("Go to the next page")
+            let controller = storyboard?.instantiateViewController(identifier: "LoginPage") as! UINavigationController
+            controller.modalPresentationStyle = .fullScreen
+            controller.modalTransitionStyle = .crossDissolve
+            present(controller, animated: true, completion: nil)
         } else {
             currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)
