@@ -7,8 +7,10 @@
 
 import UIKit
 
+// Struct representing an individual slide in the onboarding flow
 struct OnboardingSlide {
-    let title: String
-    let description: String
-    let image: UIImage
+    let title: String          // Title of the slide
+    let description: String    // Description of the slide
+    let image: UIImage         // Image displayed on the slide
 }
+

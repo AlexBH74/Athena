@@ -5,22 +5,29 @@
 //  Created by Alex Henbest on 2/15/24.
 //
 
+// Importing the UIKit framework which provides fundamental building blocks for iOS app development
 import UIKit
 
+// Declaring a class named OnboardingViewController, subclassed from UIViewController, responsible for managing the onboarding flow
 class OnboardingViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var pageControl: UIPageControl!
+    // Declaring IBOutlet properties representing UI elements
+    @IBOutlet weak var collectionView: UICollectionView! // UICollectionView to display slides
+    @IBOutlet weak var nextButton: UIButton! // Button to proceed to the next slide
+    @IBOutlet weak var pageControl: UIPageControl! // Page control to indicate the current slide
     
+    // Declaring a property to hold onboarding slides
     var slides: [OnboardingSlide] = []
     
+    // Method called after the view controller's view is loaded into memory
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setting up the collection view delegate and data source
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        // Initializing the array of slides with dummy data
         slides = [
             OnboardingSlide(title: "Title 1", description: "Description 1", image: #imageLiteral(resourceName: "slide1.png")),
             OnboardingSlide(title: "Title 2", description: "Description 2", image: #imageLiteral(resourceName: "slide2.png")),
@@ -28,24 +35,31 @@ class OnboardingViewController: UIViewController {
         ]
     }
     
+    // Action method called when the next button is clicked
     @IBAction func nextBtnClicked(_ sender: Any) {
-        
+        // Implement code to handle navigation to the next slide
     }
     
 }
 
+// Extension of OnboardingViewController to conform to UICollectionViewDelegate, UICollectionViewDataSource, and UICollectionViewDelegateFlowLayout protocols
 extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    // Method to specify the number of items in the collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return slides.count
     }
     
+    // Method to configure and return cells for the collection view
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier, for: indexPath) as! OnboardingCollectionViewCell
         cell.setup(slides[indexPath.row])
         return cell
     }
     
+    // Method to specify the size of items in the collection view
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 }
+

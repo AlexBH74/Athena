@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="PBy-VN-g0Q">
-                                <rect key="frame" x="0.0" y="686.33333333333348" width="393" height="25.666666666666629"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="PBy-VN-g0Q">
+                                <rect key="frame" x="138.66666666666666" y="704.33333333333337" width="115.66666666666666" height="25.666666666666629"/>
                                 <color key="pageIndicatorTintColor" systemColor="systemGray2Color"/>
                                 <color key="currentPageIndicatorTintColor" red="0.33106092791749614" green="0.37282201370436024" blue="0.693359375" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pageControl>
@@ -100,8 +99,11 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Adm-o0-rGD"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvZ-Fv-ybu">
-                                <rect key="frame" x="122" y="720" width="149" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvZ-Fv-ybu">
+                                <rect key="frame" x="122" y="738" width="149" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9eb-CQ-Zxj"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next">
                                     <backgroundConfiguration key="background">
@@ -117,8 +119,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.93333333730000001" green="0.87450981139999995" blue="0.77254903320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="fvZ-Fv-ybu" firstAttribute="top" secondItem="PBy-VN-g0Q" secondAttribute="bottom" constant="8" id="2pB-0V-cTG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fvZ-Fv-ybu" secondAttribute="trailing" constant="122" id="Abo-Ju-drM"/>
                             <constraint firstItem="fvZ-Fv-ybu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="122" id="I6u-GC-qUO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fvZ-Fv-ybu" secondAttribute="bottom" constant="48" id="RLJ-YB-Htd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fvZ-Fv-ybu" secondAttribute="bottom" constant="30" id="dVX-qW-IKL"/>
+                            <constraint firstItem="PBy-VN-g0Q" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="exb-1c-I6H"/>
                         </constraints>
                     </view>
                     <connections>
