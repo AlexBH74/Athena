@@ -46,12 +46,14 @@ class OnboardingViewController: UIViewController {
         ]
         
         pageControl.numberOfPages = slides.count
+        
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     // Action method called when the next button is clicked
     @IBAction func nextBtnClicked(_ sender: Any) {
         if currentPage == slides.count - 1 {
-            let controller = storyboard?.instantiateViewController(identifier: "LoginPage") as! UINavigationController
+            let controller = storyboard?.instantiateViewController(identifier: "Homescreen") as! UINavigationController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .crossDissolve
             present(controller, animated: true, completion: nil)

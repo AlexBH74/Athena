@@ -1,14 +1,14 @@
 //
-//  LoginViewController.swift
+//  CreateAccountViewController.swift
 //  Athena
 //
-//  Created by Alex Henbest on 2/23/24.
+//  Created by Alex Henbest on 2/26/24.
 //
 
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class CreateAccountViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -19,11 +19,11 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func loginClicked(_ sender: Any) {
+    @IBAction func signupClicked(_ sender: Any) {
         guard let email = usernameTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
-        Auth.auth().signIn(withEmail: email, password: password) { firebaseResult, error in
+        Auth.auth().createUser(withEmail: email, password: password) { firebaseResult, error in
             if let e = error {
                 print("error")
             }
@@ -32,5 +32,4 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
 }
