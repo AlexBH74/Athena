@@ -12,10 +12,11 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var invalidText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.invalidText.isHidden = true
         // Do any additional setup after loading the view.
     }
     
@@ -25,7 +26,7 @@ class LoginViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: email, password: password) { firebaseResult, error in
             if let e = error {
-                print("error")
+                self.invalidText.isHidden = false
             }
             else {
                 self.performSegue(withIdentifier: "goToNext", sender: self)
