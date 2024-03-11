@@ -12,6 +12,7 @@ class CreateAccountViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var invalidText: UILabel!
     
     override func viewDidLoad() {
@@ -23,14 +24,19 @@ class CreateAccountViewController: UIViewController {
     @IBAction func signupClicked(_ sender: Any) {
         guard let email = usernameTextField.text else { return }
         guard let password = passwordTextField.text else { return }
+        guard let confirmPassword = confirmPasswordTextField.text else { return }
+        guard password == confirmPassword else {
+            self.invalidText.isHidden = false
+            return
+        }
         
         Auth.auth().createUser(withEmail: email, password: password) { firebaseResult, error in
             if let e = error {
                 self.invalidText.isHidden = false
-            }
-            else {
+            } else {
                 self.performSegue(withIdentifier: "goToNext", sender: self)
             }
         }
     }
 }
+

@@ -9,9 +9,10 @@ import UIKit
 
 class HomescreenViewController: UIViewController {
     
+    @IBOutlet weak var questionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
 }
