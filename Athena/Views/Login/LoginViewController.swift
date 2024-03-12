@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var keepSignedInSwitch: UISwitch!
     @IBOutlet weak var invalidText: UILabel!
     
     override func viewDidLoad() {
@@ -29,6 +30,9 @@ class LoginViewController: UIViewController {
                 self.invalidText.isHidden = false
             }
             else {
+                if self.keepSignedInSwitch.isOn {
+                    UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                                }
                 self.performSegue(withIdentifier: "goToNext", sender: self)
             }
         }
