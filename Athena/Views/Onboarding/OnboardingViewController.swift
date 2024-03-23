@@ -41,7 +41,7 @@ class OnboardingViewController: UIViewController {
         // Initializing the array of slides with dummy data
         slides = [
             OnboardingSlide(title: "Welcome to Athena!", description: "Are you ready to test the power of your mind?", image: #imageLiteral(resourceName: "slide1")),
-            OnboardingSlide(title: "Introduction", description: "Athena is a daily brain teaser game that is a fun, competitive way to enhance one's cognitive functionality and improve problem-solving.", image: #imageLiteral(resourceName: "slide2")),
+            OnboardingSlide(title: "Introduction", description: "Athena is a daily trivia game that is a fun, competitive way to enhance your cognitive functionality and general knowledge", image: #imageLiteral(resourceName: "slide2")),
             OnboardingSlide(title: "Instructions", description: "Description 3", image: #imageLiteral(resourceName: "slide3.png"))
         ]
         
