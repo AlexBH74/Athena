@@ -10,7 +10,6 @@
 		C318AFC02BAF419700934418 /* EasyGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318AFBF2BAF419700934418 /* EasyGameViewController.swift */; };
 		C318AFC22BAF41BB00934418 /* HardGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318AFC12BAF41BB00934418 /* HardGameViewController.swift */; };
 		C318AFC42BAF41D900934418 /* MediumGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318AFC32BAF41D900934418 /* MediumGameViewController.swift */; };
-		C318AFC62BAF43B500934418 /* FirebaseTesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318AFC52BAF43B400934418 /* FirebaseTesterViewController.swift */; };
 		C32BF2822B7E76470044B365 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32BF2812B7E76470044B365 /* OnboardingViewController.swift */; };
 		C32BF2842B85205D0044B365 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32BF2832B85205D0044B365 /* OnboardingSlide.swift */; };
 		C32BF2862B86593B0044B365 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32BF2852B86593B0044B365 /* OnboardingCollectionViewCell.swift */; };
@@ -50,13 +49,14 @@
 		C38919E52B7E6D4400DB88CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38919E32B7E6D4400DB88CC /* Main.storyboard */; };
 		C38919E72B7E6D4600DB88CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38919E62B7E6D4600DB88CC /* Assets.xcassets */; };
 		C38919EA2B7E6D4600DB88CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38919E82B7E6D4600DB88CC /* LaunchScreen.storyboard */; };
+		C3E54F482BB5ADC20002C3EF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E54F472BB5ADC20002C3EF /* FirstViewController.swift */; };
+		C3E54F4A2BB5B14D0002C3EF /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E54F492BB5B14D0002C3EF /* LaunchScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C318AFBF2BAF419700934418 /* EasyGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyGameViewController.swift; sourceTree = "<group>"; };
 		C318AFC12BAF41BB00934418 /* HardGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardGameViewController.swift; sourceTree = "<group>"; };
 		C318AFC32BAF41D900934418 /* MediumGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumGameViewController.swift; sourceTree = "<group>"; };
-		C318AFC52BAF43B400934418 /* FirebaseTesterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTesterViewController.swift; sourceTree = "<group>"; };
 		C32BF2812B7E76470044B365 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		C32BF2832B85205D0044B365 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		C32BF2852B86593B0044B365 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -71,6 +71,8 @@
 		C38919E62B7E6D4600DB88CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C38919E92B7E6D4600DB88CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C38919EB2B7E6D4600DB88CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3E54F472BB5ADC20002C3EF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		C3E54F492BB5B14D0002C3EF /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				C32BF2802B7E76310044B365 /* Onboarding */,
 				C32BF28C2B894D260044B365 /* Login */,
 				C32BF2872B893EE90044B365 /* Home */,
+				C3E54F4B2BB5B1510002C3EF /* Launch Screen */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,7 +146,6 @@
 		C32BF27F2B7E761A0044B365 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				C318AFC52BAF43B400934418 /* FirebaseTesterViewController.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -170,6 +172,7 @@
 			children = (
 				C32BF28A2B894D1F0044B365 /* LoginViewController.swift */,
 				C32BF28D2B8CFF550044B365 /* CreateAccountViewController.swift */,
+				C3E54F472BB5ADC20002C3EF /* FirstViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -205,6 +208,14 @@
 				C32BF28F2B8D530B0044B365 /* GoogleService-Info.plist */,
 			);
 			path = Athena;
+			sourceTree = "<group>";
+		};
+		C3E54F4B2BB5B1510002C3EF /* Launch Screen */ = {
+			isa = PBXGroup;
+			children = (
+				C3E54F492BB5B14D0002C3EF /* LaunchScreenViewController.swift */,
+			);
+			path = "Launch Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,8 +323,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C32BF28B2B894D1F0044B365 /* LoginViewController.swift in Sources */,
+				C3E54F4A2BB5B14D0002C3EF /* LaunchScreenViewController.swift in Sources */,
 				C318AFC22BAF41BB00934418 /* HardGameViewController.swift in Sources */,
 				C318AFC42BAF41D900934418 /* MediumGameViewController.swift in Sources */,
+				C3E54F482BB5ADC20002C3EF /* FirstViewController.swift in Sources */,
 				C32BF2842B85205D0044B365 /* OnboardingSlide.swift in Sources */,
 				C32BF2892B893F150044B365 /* HomescreenViewController.swift in Sources */,
 				C38919DE2B7E6D4400DB88CC /* AppDelegate.swift in Sources */,
@@ -322,7 +335,6 @@
 				C318AFC02BAF419700934418 /* EasyGameViewController.swift in Sources */,
 				C38919E02B7E6D4400DB88CC /* SceneDelegate.swift in Sources */,
 				C32BF2822B7E76470044B365 /* OnboardingViewController.swift in Sources */,
-				C318AFC62BAF43B500934418 /* FirebaseTesterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

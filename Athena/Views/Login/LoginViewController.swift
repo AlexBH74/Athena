@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var keepSignedInSwitch: UISwitch!
@@ -25,17 +25,28 @@ class LoginViewController: UIViewController {
         guard let email = usernameTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
-        Auth.auth().signIn(withEmail: email, password: password) { firebaseResult, error in
-            if let e = error {
-                self.invalidText.isHidden = false
-            }
-            else {
-                if self.keepSignedInSwitch.isOn {
-                    UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
-                                }
-                self.performSegue(withIdentifier: "goToNext", sender: self)
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let strongSelf = self else { return }
+            
+            if let error = error {
+                strongSelf.invalidText.isHidden = false
+                print("Sign-in error: \(error.localizedDescription)")
+            } else {
+                if strongSelf.keepSignedInSwitch.isOn {
+                    if let user = authResult?.user {
+                        user.getIDToken(completion: { token, error in
+                            if let error = error {
+                                print("Error getting ID token: \(error.localizedDescription)")
+                            } else if let idToken = token {
+                                // Store the ID token in UserDefaults
+                                UserDefaults.standard.set(idToken, forKey: "idToken")
+                            }
+                        })
+                    }
+                }
+                
+                strongSelf.performSegue(withIdentifier: "goToNext", sender: strongSelf)
             }
         }
     }
-    
 }
