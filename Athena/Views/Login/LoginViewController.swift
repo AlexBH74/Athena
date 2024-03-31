@@ -33,18 +33,8 @@ class LoginViewController: UIViewController {
                 print("Sign-in error: \(error.localizedDescription)")
             } else {
                 if strongSelf.keepSignedInSwitch.isOn {
-                    if let user = authResult?.user {
-                        user.getIDToken(completion: { token, error in
-                            if let error = error {
-                                print("Error getting ID token: \(error.localizedDescription)")
-                            } else if let idToken = token {
-                                // Store the ID token in UserDefaults
-                                UserDefaults.standard.set(idToken, forKey: "idToken")
-                            }
-                        })
-                    }
+                    UserDefaults.standard.set(true, forKey: "keepSignedIn")
                 }
-                
                 strongSelf.performSegue(withIdentifier: "goToNext", sender: strongSelf)
             }
         }

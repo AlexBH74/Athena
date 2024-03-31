@@ -141,10 +141,10 @@
             </objects>
             <point key="canvasLocation" x="52.671755725190835" y="500.7042253521127"/>
         </scene>
-        <!--View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="p8S-5v-rYA">
             <objects>
-                <viewController id="8FQ-aR-kXw" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8FQ-aR-kXw" customClass="RootViewController" customModule="Athena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CzA-dX-IUa">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -417,7 +417,7 @@
                                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stay signed in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6Z-F1-X9m">
-                                        <rect key="frame" x="58.33333333333335" y="6.3333333333333144" width="108.66666666666669" height="18.666666666666671"/>
+                                        <rect key="frame" x="58.33333333333335" y="6.3333333333333144" width="108.66666666666669" height="18.666666666666668"/>
                                         <accessibility key="accessibilityConfiguration" identifier="invalidText"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
                                         <color key="textColor" red="0.94901967050000002" green="0.66666668650000005" blue="0.42352938649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -485,7 +485,7 @@
         <!--Homescreen View Controller-->
         <scene sceneID="gHf-KJ-HnZ">
             <objects>
-                <viewController id="qt5-JN-p8g" customClass="HomescreenViewController" customModule="Athena" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomescreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qt5-JN-p8g" customClass="HomescreenViewController" customModule="Athena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MWa-qz-W5l">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -537,9 +537,6 @@
                                 <rect key="frame" x="154" y="700" width="85" height="32"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Log Out"/>
-                                <connections>
-                                    <segue destination="8FQ-aR-kXw" kind="show" id="qSj-K1-CsG"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D07-fs-Quc"/>
@@ -609,8 +606,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DKr-6x-h3S"/>
-        <segue reference="qSj-K1-CsG"/>
+        <segue reference="h3U-eI-Pr2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="loginlogo" width="249.5" height="249.5"/>
