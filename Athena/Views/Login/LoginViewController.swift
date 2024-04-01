@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
                 print("Sign-in error: \(error.localizedDescription)")
             } else {
                 if strongSelf.keepSignedInSwitch.isOn {
-                    UserDefaults.standard.set(true, forKey: "keepSignedIn")
+                    UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
                 }
                 strongSelf.performSegue(withIdentifier: "goToNext", sender: strongSelf)
             }

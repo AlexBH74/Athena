@@ -10,11 +10,12 @@ import Firebase
 
 class RootViewController: UIViewController {
     
-    let isLoggedIn  = UserDefaults.standard.bool(forKey: "isLoggedIn")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Check the condition when the view loads
+        
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        let isLoggedIn = UserDefaults.standard.bool(forKey: "keepSignedIn")
         if isLoggedIn == true {
             goToHomescreen()
         }

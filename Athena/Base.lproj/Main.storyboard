@@ -144,7 +144,7 @@
         <!--Root View Controller-->
         <scene sceneID="p8S-5v-rYA">
             <objects>
-                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8FQ-aR-kXw" customClass="RootViewController" customModule="Athena" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8FQ-aR-kXw" customClass="RootViewController" customModule="Athena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CzA-dX-IUa">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -467,7 +467,7 @@
         <!--Navigation Controller-->
         <scene sceneID="AOk-3w-GCi">
             <objects>
-                <navigationController storyboardIdentifier="LoginPage" automaticallyAdjustsScrollViewInsets="NO" id="Dcu-Lc-vb8" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginPage" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dcu-Lc-vb8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5ES-ov-uPH">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -579,6 +579,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hXU-HU-biV"/>
                     <connections>
+                        <outlet property="logOutButton" destination="xIj-JH-7Wg" id="BwN-4M-vRe"/>
                         <outlet property="questionLabel" destination="jev-Rh-KFX" id="2f2-vB-cxa"/>
                     </connections>
                 </viewController>
@@ -589,7 +590,7 @@
         <!--Navigation Controller-->
         <scene sceneID="zah-SZ-9Z0">
             <objects>
-                <navigationController storyboardIdentifier="Homescreen" automaticallyAdjustsScrollViewInsets="NO" id="DJU-z7-foI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Homescreen" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DJU-z7-foI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ikY-ng-zRf">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
