@@ -42,7 +42,7 @@ class OnboardingViewController: UIViewController {
         slides = [
             OnboardingSlide(title: "Welcome to Athena!", description: "Are you ready to test the power of your mind?", image: #imageLiteral(resourceName: "slide1")),
             OnboardingSlide(title: "Introduction", description: "Athena is a daily trivia game that is a fun, competitive way to enhance your cognitive functionality and general knowledge", image: #imageLiteral(resourceName: "slide2")),
-            OnboardingSlide(title: "Instructions", description: "Description 3", image: #imageLiteral(resourceName: "slide3.png"))
+            OnboardingSlide(title: "Instructions", description: "When ready press \"Get Started!\" Then select your mode and press start to see a question with four multiple choice answers. Be as quick as possible, you'll be timed!", image: #imageLiteral(resourceName: "slide3.png"))
         ]
         
         pageControl.numberOfPages = slides.count

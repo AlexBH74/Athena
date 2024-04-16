@@ -16,17 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homescreen" translatesAutoresizingMaskIntoConstraints="NO" id="T51-PL-PZp">
-                                <rect key="frame" x="-22" y="-17" width="437" height="886"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homescreen" translatesAutoresizingMaskIntoConstraints="NO" id="0uj-uH-zCW">
+                                <rect key="frame" x="-21" y="-211" width="435" height="1275"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="T51-PL-PZp" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-22" id="1Bv-0Y-dir"/>
-                            <constraint firstAttribute="bottom" secondItem="T51-PL-PZp" secondAttribute="bottom" constant="-17" id="9hl-8z-s1S"/>
-                            <constraint firstItem="T51-PL-PZp" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-17" id="Vms-XQ-DxA"/>
-                            <constraint firstAttribute="trailing" secondItem="T51-PL-PZp" secondAttribute="trailing" constant="-22" id="auX-Ab-72h"/>
+                            <constraint firstItem="0uj-uH-zCW" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-211" id="Pi0-ky-XJa"/>
+                            <constraint firstAttribute="bottom" secondItem="0uj-uH-zCW" secondAttribute="bottom" constant="-212" id="VlG-lj-M11"/>
+                            <constraint firstItem="0uj-uH-zCW" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-21" id="X2s-vt-6Ra"/>
+                            <constraint firstAttribute="trailing" secondItem="0uj-uH-zCW" secondAttribute="trailing" constant="-21" id="as4-ZE-d2r"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,7 +36,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="homescreen" width="846" height="1743"/>
+        <image name="homescreen" width="423" height="871.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

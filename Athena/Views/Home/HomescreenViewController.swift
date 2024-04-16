@@ -16,6 +16,7 @@ class HomescreenViewController: UIViewController {
         super.viewDidLoad()
         
         logOutButton.addTarget(self, action: #selector(logOutButtonTapped(_:)), for: .touchUpInside)
+        
     }
     
     @objc func logOutButtonTapped(_ sender: UIButton) {

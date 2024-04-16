@@ -50,6 +50,11 @@
 		C38919E72B7E6D4600DB88CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38919E62B7E6D4600DB88CC /* Assets.xcassets */; };
 		C38919EA2B7E6D4600DB88CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38919E82B7E6D4600DB88CC /* LaunchScreen.storyboard */; };
 		C3E54F482BB5ADC20002C3EF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E54F472BB5ADC20002C3EF /* RootViewController.swift */; };
+		C3FECE892BC98FD1005E7B4C /* DataFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FECE882BC98FD1005E7B4C /* DataFrame.swift */; };
+		C3FECE8D2BC99562005E7B4C /* trivia_mc - Medium.csv in Resources */ = {isa = PBXBuildFile; fileRef = C3FECE8A2BC99562005E7B4C /* trivia_mc - Medium.csv */; };
+		C3FECE8E2BC99562005E7B4C /* trivia_mc - Easy.csv in Resources */ = {isa = PBXBuildFile; fileRef = C3FECE8B2BC99562005E7B4C /* trivia_mc - Easy.csv */; };
+		C3FECE8F2BC99562005E7B4C /* trivia_mc - Hard.csv in Resources */ = {isa = PBXBuildFile; fileRef = C3FECE8C2BC99562005E7B4C /* trivia_mc - Hard.csv */; };
+		C3FECE912BCD7DBC005E7B4C /* triviaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FECE902BCD7DBC005E7B4C /* triviaScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +76,11 @@
 		C38919E92B7E6D4600DB88CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C38919EB2B7E6D4600DB88CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3E54F472BB5ADC20002C3EF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		C3FECE882BC98FD1005E7B4C /* DataFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFrame.swift; sourceTree = "<group>"; };
+		C3FECE8A2BC99562005E7B4C /* trivia_mc - Medium.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "trivia_mc - Medium.csv"; sourceTree = "<group>"; };
+		C3FECE8B2BC99562005E7B4C /* trivia_mc - Easy.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "trivia_mc - Easy.csv"; sourceTree = "<group>"; };
+		C3FECE8C2BC99562005E7B4C /* trivia_mc - Hard.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "trivia_mc - Hard.csv"; sourceTree = "<group>"; };
+		C3FECE902BCD7DBC005E7B4C /* triviaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = triviaScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				C32BF2832B85205D0044B365 /* OnboardingSlide.swift */,
+				C3FECE882BC98FD1005E7B4C /* DataFrame.swift */,
+				C3FECE902BCD7DBC005E7B4C /* triviaScreen.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +213,9 @@
 				C38919E32B7E6D4400DB88CC /* Main.storyboard */,
 				C38919E62B7E6D4600DB88CC /* Assets.xcassets */,
 				C38919E82B7E6D4600DB88CC /* LaunchScreen.storyboard */,
+				C3FECE8B2BC99562005E7B4C /* trivia_mc - Easy.csv */,
+				C3FECE8A2BC99562005E7B4C /* trivia_mc - Medium.csv */,
+				C3FECE8C2BC99562005E7B4C /* trivia_mc - Hard.csv */,
 				C38919EB2B7E6D4600DB88CC /* Info.plist */,
 				C32BF28F2B8D530B0044B365 /* GoogleService-Info.plist */,
 			);
@@ -298,9 +313,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C38919EA2B7E6D4600DB88CC /* LaunchScreen.storyboard in Resources */,
+				C3FECE8D2BC99562005E7B4C /* trivia_mc - Medium.csv in Resources */,
+				C3FECE8F2BC99562005E7B4C /* trivia_mc - Hard.csv in Resources */,
 				C32BF2902B8D530C0044B365 /* GoogleService-Info.plist in Resources */,
 				C38919E72B7E6D4600DB88CC /* Assets.xcassets in Resources */,
 				C38919E52B7E6D4400DB88CC /* Main.storyboard in Resources */,
+				C3FECE8E2BC99562005E7B4C /* trivia_mc - Easy.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,12 +332,14 @@
 				C32BF28B2B894D1F0044B365 /* LoginViewController.swift in Sources */,
 				C318AFC22BAF41BB00934418 /* HardGameViewController.swift in Sources */,
 				C318AFC42BAF41D900934418 /* MediumGameViewController.swift in Sources */,
+				C3FECE892BC98FD1005E7B4C /* DataFrame.swift in Sources */,
 				C3E54F482BB5ADC20002C3EF /* RootViewController.swift in Sources */,
 				C32BF2842B85205D0044B365 /* OnboardingSlide.swift in Sources */,
 				C32BF2892B893F150044B365 /* HomescreenViewController.swift in Sources */,
 				C38919DE2B7E6D4400DB88CC /* AppDelegate.swift in Sources */,
 				C32BF28E2B8CFF550044B365 /* CreateAccountViewController.swift in Sources */,
 				C32BF2862B86593B0044B365 /* OnboardingCollectionViewCell.swift in Sources */,
+				C3FECE912BCD7DBC005E7B4C /* triviaScreen.swift in Sources */,
 				C318AFC02BAF419700934418 /* EasyGameViewController.swift in Sources */,
 				C38919E02B7E6D4400DB88CC /* SceneDelegate.swift in Sources */,
 				C32BF2822B7E76470044B365 /* OnboardingViewController.swift in Sources */,
