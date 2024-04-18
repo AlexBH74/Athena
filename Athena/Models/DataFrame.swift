@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 struct DataFrame {
     var columns: [String]
     var rows: [[String]]
@@ -21,6 +20,7 @@ struct DataFrame {
         }
 
         let lines = csvData.components(separatedBy: .newlines)
+
         if let headerLine = lines.first {
             self.columns = headerLine.components(separatedBy: "*")
         } else {
@@ -28,7 +28,8 @@ struct DataFrame {
         }
 
         self.rows = lines.dropFirst().compactMap { line in
-            line.components(separatedBy: "*")
+            let columns = line.components(separatedBy: "*")
+            return columns.count > 1 && !columns.allSatisfy { $0.isEmpty } ? columns : nil
         }
     }
 }

@@ -10,8 +10,8 @@ import UIKit
 struct triviaScreen {
     let category: String
     let question: String
-    let answer: String
-    let incorrect1: String
-    let incorrect2: String
-    let incorrect3: String
+    let answer1: String
+    let answer2: String
+    let answer3: String
+    let answer4: String
 }
