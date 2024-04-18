@@ -355,21 +355,33 @@
                                 <rect key="frame" x="30" y="466" width="333" height="78"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="A"/>
+                                <connections>
+                                    <action selector="aClicked:" destination="Dj7-Z0-tDy" eventType="touchUpInside" id="zW1-EX-u9M"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sF1-6F-pa7">
                                 <rect key="frame" x="30" y="642" width="333" height="78"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="C"/>
+                                <connections>
+                                    <action selector="cClicked:" destination="Dj7-Z0-tDy" eventType="touchUpInside" id="Rlv-Aq-MNl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tw-vx-Boo">
                                 <rect key="frame" x="30" y="554" width="333" height="78"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="B"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="B" titleAlignment="center"/>
+                                <connections>
+                                    <action selector="bClicked:" destination="Dj7-Z0-tDy" eventType="touchUpInside" id="Aig-5X-viR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhR-OE-NI4">
                                 <rect key="frame" x="30" y="730" width="333" height="78"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="D"/>
+                                <connections>
+                                    <action selector="dClicked:" destination="Dj7-Z0-tDy" eventType="touchUpInside" id="k2D-mK-Isx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oN0-dz-9Dj"/>
