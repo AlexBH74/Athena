@@ -8,6 +8,7 @@
 import UIKit
 
 class EasyGameViewController: UIViewController {
+    
     private var dataFrame: DataFrame?
     private var trivia: [triviaScreen] = []
     private var usedIndexes: Set<Int> {
@@ -30,6 +31,7 @@ class EasyGameViewController: UIViewController {
     @IBOutlet weak var titleAnswer3: UIButton!
     @IBOutlet weak var titleAnswer4: UIButton!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,7 @@ class EasyGameViewController: UIViewController {
         displayRandomTrivia()
     }
 
+    
     func loadDataFrameFromCSV() {
         dataFrame = DataFrame(fromCSVFile: "trivia_mc - Easy")
         if let dataFrame = dataFrame {
