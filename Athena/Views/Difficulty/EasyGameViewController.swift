@@ -8,10 +8,18 @@
 import UIKit
 
 class EasyGameViewController: UIViewController {
+    @IBOutlet weak var questionText: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var titleAnswer1: UIButton!
+    @IBOutlet weak var titleAnswer2: UIButton!
+    @IBOutlet weak var titleAnswer3: UIButton!
+    @IBOutlet weak var titleAnswer4: UIButton!
     
-    private var correctAnswer: String?
     private var dataFrame: DataFrame?
+    private var correctAnswer: String?
+    
     private var trivia: [triviaScreen] = []
+    
     private var usedIndexes: Set<Int> {
         get {
             if let storedIndexes = UserDefaults.standard.object(forKey: "usedIndexes") as? [Int] {
@@ -24,13 +32,6 @@ class EasyGameViewController: UIViewController {
             UserDefaults.standard.set(Array(newValue), forKey: "usedIndexes")
         }
     }
-
-    @IBOutlet weak var questionText: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var titleAnswer1: UIButton!
-    @IBOutlet weak var titleAnswer2: UIButton!
-    @IBOutlet weak var titleAnswer3: UIButton!
-    @IBOutlet weak var titleAnswer4: UIButton!
 
     
     override func viewDidLoad() {
@@ -90,10 +91,10 @@ class EasyGameViewController: UIViewController {
             titleAnswer4.setTitle(trivia.first?.answer4, for: .normal)
         }
     }
+
     
     @IBAction func aClicked(_ sender: Any) {
         let answer = correctAnswer
-        print(answer)
         if answer == titleAnswer1.titleLabel?.text {
             print("Correct!")
         }
@@ -103,7 +104,6 @@ class EasyGameViewController: UIViewController {
     }
     @IBAction func bClicked(_ sender: Any) {
         let answer = correctAnswer
-        print(answer)
         if answer == titleAnswer2.titleLabel?.text {
             print("Correct!")
         }
@@ -113,7 +113,6 @@ class EasyGameViewController: UIViewController {
     }
     @IBAction func cClicked(_ sender: Any) {
         let answer = correctAnswer
-        print(answer)
         if answer == titleAnswer3.titleLabel?.text {
             print("Correct!")
         }
@@ -123,7 +122,6 @@ class EasyGameViewController: UIViewController {
     }
     @IBAction func dClicked(_ sender: Any) {
         let answer = correctAnswer
-        print(answer)
         if answer == titleAnswer4.titleLabel?.text {
             print("Correct!")
         }
