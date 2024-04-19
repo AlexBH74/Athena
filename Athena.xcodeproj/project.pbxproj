@@ -125,8 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				C318AFBF2BAF419700934418 /* EasyGameViewController.swift */,
-				C318AFC12BAF41BB00934418 /* HardGameViewController.swift */,
 				C318AFC32BAF41D900934418 /* MediumGameViewController.swift */,
+				C318AFC12BAF41BB00934418 /* HardGameViewController.swift */,
 			);
 			path = Difficulty;
 			sourceTree = "<group>";
