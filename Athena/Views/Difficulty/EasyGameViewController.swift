@@ -14,11 +14,17 @@ class EasyGameViewController: UIViewController {
     @IBOutlet weak var titleAnswer2: UIButton!
     @IBOutlet weak var titleAnswer3: UIButton!
     @IBOutlet weak var titleAnswer4: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var pauseplayImage: UIImageView!
     
     private var dataFrame: DataFrame?
     private var correctAnswer: String?
-    
     private var trivia: [triviaScreen] = []
+    
+    private var timer: Timer = Timer()
+    private var num: Int = 0
+    var timerCounting: Bool = false
     
     private var usedIndexes: Set<Int> {
         get {
@@ -39,6 +45,8 @@ class EasyGameViewController: UIViewController {
         
         loadDataFrameFromCSV()
         displayRandomTrivia()
+        startCounting()
+        
     }
 
     
@@ -52,7 +60,7 @@ class EasyGameViewController: UIViewController {
     func displayRandomTrivia() {
         let numberOfRows = dataFrame?.rows.count ?? 0
         var availableIndexes = Array(0..<numberOfRows)
-        var answerRandomizer = [3, 4, 5, 6]
+        let answerRandomizer = [3, 4, 5, 6]
         
         // Remove the used indexes from the available indexes
         availableIndexes.removeAll(where: { usedIndexes.contains($0) })
@@ -128,5 +136,41 @@ class EasyGameViewController: UIViewController {
         else {
             print("Incorrect!")
         }
+    }
+    
+    func startCounting() {
+        timerCounting = true
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+        let pauseImage = UIImage(named: "pause")
+        pauseplayImage.image = pauseImage
+    }
+    
+    @IBAction func pauseClicked(_ sender: Any) {
+        if(timerCounting) {
+            timerCounting = false
+            timer.invalidate()
+            let playImage = UIImage(named: "play")
+            pauseplayImage.image = playImage
+        } else {
+            startCounting()
+        }
+    }
+    @objc func timerCounter() -> Void {
+        num = num + 1
+        let time = secondsToMinutesSeconds(seconds: num)
+        let timeString = makeTimeString(minutes: time.0, seconds: time.1)
+        self.timerLabel.text = timeString
+    }
+    
+    func secondsToMinutesSeconds(seconds: Int) -> (Int, Int) {
+        return (((seconds % 3600) / 60), ((seconds % 3600) % 60))
+    }
+    
+    func makeTimeString(minutes: Int, seconds: Int) -> String {
+        var timeString = ""
+        timeString += String(format: "%02d", minutes)
+        timeString += ":"
+        timeString += String(format: "%02d", seconds)
+        return timeString
     }
 }
