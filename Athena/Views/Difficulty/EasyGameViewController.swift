@@ -21,10 +21,14 @@ class EasyGameViewController: UIViewController {
     private var dataFrame: DataFrame?
     private var correctAnswer: String?
     private var trivia: [triviaScreen] = []
+    var incorrect: Bool = false
+    var correct: Bool = false
+    
     
     private var timer: Timer = Timer()
     private var num: Int = 0
     var timerCounting: Bool = false
+    var timeString: String = ""
     
     private var usedIndexes: Set<Int> {
         get {
@@ -36,6 +40,19 @@ class EasyGameViewController: UIViewController {
         }
         set {
             UserDefaults.standard.set(Array(newValue), forKey: "usedIndexes")
+        }
+    }
+
+    private var correctTimes: [String] {
+        get {
+            if let storedTimes = UserDefaults.standard.object(forKey: "correctTimes") as? [String] {
+                return storedTimes
+            } else {
+                return []
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "correctTimes")
         }
     }
 
@@ -104,37 +121,96 @@ class EasyGameViewController: UIViewController {
     @IBAction func aClicked(_ sender: Any) {
         let answer = correctAnswer
         if answer == titleAnswer1.titleLabel?.text {
-            print("Correct!")
+            correct = true
+            incorrect = false
         }
         else {
+            incorrect = true
+            correct = false
+        }
+        stopCounting()
+        
+        if incorrect == true {
             print("Incorrect!")
+            resetTimer()
+        }
+        if correct == true {
+            print("Correct!")
+            correctTimes.append(timeString)
+            correctTimes = [] //comment out to make correct times save
+            print(correctTimes)
+            resetTimer()
         }
     }
     @IBAction func bClicked(_ sender: Any) {
         let answer = correctAnswer
         if answer == titleAnswer2.titleLabel?.text {
-            print("Correct!")
+            correct = true
+            incorrect = false
         }
         else {
+            incorrect = true
+            correct = false
+        }
+        stopCounting()
+        
+        if incorrect == true {
             print("Incorrect!")
+            resetTimer()
+        }
+        if correct == true {
+            print("Correct!")
+            correctTimes.append(timeString)
+            correctTimes = [] //comment out to make correct times save
+            print(correctTimes)
+            resetTimer()
         }
     }
     @IBAction func cClicked(_ sender: Any) {
         let answer = correctAnswer
         if answer == titleAnswer3.titleLabel?.text {
-            print("Correct!")
+            correct = true
+            incorrect = false
         }
         else {
+            incorrect = true
+            correct = false
+        }
+        stopCounting()
+        
+        if incorrect == true {
             print("Incorrect!")
+            resetTimer()
+        }
+        if correct == true {
+            print("Correct!")
+            correctTimes.append(timeString)
+            correctTimes = [] //comment out to make correct times save
+            print(correctTimes)
+            resetTimer()
         }
     }
     @IBAction func dClicked(_ sender: Any) {
         let answer = correctAnswer
         if answer == titleAnswer4.titleLabel?.text {
-            print("Correct!")
+            correct = true
+            incorrect = false
+        }else {
+            incorrect = true
+            correct = false
         }
-        else {
+        stopCounting()
+        
+        if incorrect == true {
             print("Incorrect!")
+            resetTimer()
+        }
+        if correct == true {
+            print("Correct!")
+            correctTimes.append(timeString)
+            correctTimes = [] //comment out to make correct times save
+            print(correctTimes)
+            resetTimer()
         }
     }
     
@@ -145,21 +221,39 @@ class EasyGameViewController: UIViewController {
         pauseplayImage.image = pauseImage
     }
     
+    func stopCounting() {
+        timerCounting = false
+        timer.invalidate()
+    }
+    
+    func resetTimer() {
+        self.num = 0
+        self.timer.invalidate()
+        self.timerLabel.text = self.makeTimeString(minutes: 0, seconds: 0)
+    }
+    
+    @objc func timerCounter() -> Void {
+        num = num + 1
+        let time = secondsToMinutesSeconds(seconds: num)
+        timeString = makeTimeString(minutes: time.0, seconds: time.1)
+        if timeString == "60:00" {
+            incorrect = true
+            print("Incorrect!")
+            stopCounting()
+            resetTimer()
+        } else {
+            self.timerLabel.text = timeString
+        }
+    }
+    
     @IBAction func pauseClicked(_ sender: Any) {
         if(timerCounting) {
-            timerCounting = false
-            timer.invalidate()
+            stopCounting()
             let playImage = UIImage(named: "play")
             pauseplayImage.image = playImage
         } else {
             startCounting()
         }
-    }
-    @objc func timerCounter() -> Void {
-        num = num + 1
-        let time = secondsToMinutesSeconds(seconds: num)
-        let timeString = makeTimeString(minutes: time.0, seconds: time.1)
-        self.timerLabel.text = timeString
     }
     
     func secondsToMinutesSeconds(seconds: Int) -> (Int, Int) {
@@ -167,7 +261,7 @@ class EasyGameViewController: UIViewController {
     }
     
     func makeTimeString(minutes: Int, seconds: Int) -> String {
-        var timeString = ""
+        timeString = ""
         timeString += String(format: "%02d", minutes)
         timeString += ":"
         timeString += String(format: "%02d", seconds)
