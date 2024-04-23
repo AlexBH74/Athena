@@ -407,6 +407,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRe-d5-OY2">
+                                <rect key="frame" x="0.0" y="144" width="393" height="708"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="kt1-oh-SVo">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="708"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="systemUltraThinMaterial"/>
+                            </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oN0-dz-9Dj"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -429,11 +437,14 @@
                             <constraint firstItem="oN0-dz-9Dj" firstAttribute="trailing" secondItem="E7L-9X-M0U" secondAttribute="trailing" constant="30" id="V0H-R8-L3c"/>
                             <constraint firstItem="iET-qL-RI1" firstAttribute="top" secondItem="oN0-dz-9Dj" secondAttribute="top" constant="4" id="Xc1-ET-0bc"/>
                             <constraint firstItem="ser-nA-Len" firstAttribute="leading" secondItem="oN0-dz-9Dj" secondAttribute="leading" constant="41" id="ZFy-fy-MNI"/>
+                            <constraint firstItem="WRe-d5-OY2" firstAttribute="trailing" secondItem="oN0-dz-9Dj" secondAttribute="trailing" id="ZKp-F2-mnP"/>
                             <constraint firstItem="iET-qL-RI1" firstAttribute="leading" secondItem="oN0-dz-9Dj" secondAttribute="leading" constant="144" id="Zv0-ux-bJJ"/>
                             <constraint firstItem="5tw-vx-Boo" firstAttribute="leading" secondItem="oN0-dz-9Dj" secondAttribute="leading" constant="30" id="a3S-gJ-jK9"/>
                             <constraint firstItem="JhR-OE-NI4" firstAttribute="leading" secondItem="oN0-dz-9Dj" secondAttribute="leading" constant="30" id="a4w-mJ-bQB"/>
                             <constraint firstItem="pS0-uN-CwA" firstAttribute="leading" secondItem="oN0-dz-9Dj" secondAttribute="leading" constant="213" id="aPl-Po-fgY"/>
                             <constraint firstItem="5tw-vx-Boo" firstAttribute="top" secondItem="oN0-dz-9Dj" secondAttribute="top" constant="451" id="cc7-8y-kaW"/>
+                            <constraint firstAttribute="bottom" secondItem="WRe-d5-OY2" secondAttribute="bottom" id="f9c-tC-KAQ"/>
+                            <constraint firstItem="WRe-d5-OY2" firstAttribute="top" secondItem="YaH-Ly-SHC" secondAttribute="bottom" id="fNb-gr-hK1"/>
                             <constraint firstItem="oN0-dz-9Dj" firstAttribute="trailing" secondItem="3sR-gj-aeM" secondAttribute="trailing" constant="148" id="g0Z-Bv-NKt"/>
                             <constraint firstItem="YaH-Ly-SHC" firstAttribute="top" secondItem="oN0-dz-9Dj" secondAttribute="top" id="gw8-LJ-52A"/>
                             <constraint firstItem="oN0-dz-9Dj" firstAttribute="trailing" secondItem="JhR-OE-NI4" secondAttribute="trailing" constant="30" id="huV-Us-Fj4"/>
@@ -445,6 +456,7 @@
                             <constraint firstItem="oN0-dz-9Dj" firstAttribute="bottom" secondItem="YaH-Ly-SHC" secondAttribute="bottom" constant="674" id="stl-li-LIS"/>
                             <constraint firstItem="oN0-dz-9Dj" firstAttribute="bottom" secondItem="sF1-6F-pa7" secondAttribute="bottom" constant="98" id="t2y-5I-MrQ"/>
                             <constraint firstItem="hIS-dm-Ea6" firstAttribute="top" secondItem="oN0-dz-9Dj" secondAttribute="top" constant="95" id="tXe-fr-rMQ"/>
+                            <constraint firstItem="WRe-d5-OY2" firstAttribute="leading" secondItem="oN0-dz-9Dj" secondAttribute="leading" id="v0s-KX-kjD"/>
                             <constraint firstItem="oN0-dz-9Dj" firstAttribute="trailing" secondItem="ser-nA-Len" secondAttribute="trailing" constant="41" id="wGU-wt-boN"/>
                             <constraint firstItem="oN0-dz-9Dj" firstAttribute="trailing" secondItem="iET-qL-RI1" secondAttribute="trailing" constant="173" id="wOc-WP-nWD"/>
                             <constraint firstItem="oN0-dz-9Dj" firstAttribute="bottom" secondItem="iET-qL-RI1" secondAttribute="bottom" constant="679" id="wU5-ac-7Xa"/>
@@ -455,6 +467,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="G3u-5q-b6Q"/>
                     <connections>
+                        <outlet property="blurEffect" destination="WRe-d5-OY2" id="aVh-t6-lvT"/>
                         <outlet property="categoryLabel" destination="ser-nA-Len" id="TMt-PL-JZU"/>
                         <outlet property="pauseButton" destination="3sR-gj-aeM" id="bh6-lm-82s"/>
                         <outlet property="pauseplayImage" destination="pS0-uN-CwA" id="xOU-Do-NLk"/>
@@ -908,7 +921,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
