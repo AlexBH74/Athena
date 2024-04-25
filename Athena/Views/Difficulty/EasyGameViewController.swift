@@ -18,6 +18,10 @@ class EasyGameViewController: UIViewController {
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var pauseplayImage: UIImageView!
     @IBOutlet weak var blurEffect: UIVisualEffectView!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var darkerSpace: UILabel!
+    @IBOutlet weak var pausedLabel: UILabel!
+    
     
     private var dataFrame: DataFrame?
     private var correctAnswer: String?
@@ -63,9 +67,10 @@ class EasyGameViewController: UIViewController {
         
         loadDataFrameFromCSV()
         displayRandomTrivia()
-        startCounting()
         
-        self.blurEffect.isHidden = true
+        self.blurEffect.isHidden = false
+        self.startButton.isHidden = false
+        self.pausedLabel.isHidden = true
     }
 
     
@@ -119,6 +124,12 @@ class EasyGameViewController: UIViewController {
         }
     }
 
+    
+    @IBAction func startClicked(_ sender: Any) {
+        startCounting()
+        self.startButton.isHidden = true
+    }
+    
     
     @IBAction func aClicked(_ sender: Any) {
         let answer = correctAnswer
@@ -244,8 +255,17 @@ class EasyGameViewController: UIViewController {
             stopCounting()
             let playImage = UIImage(named: "play")
             pauseplayImage.image = playImage
+            self.pausedLabel.isHidden = false
+            view.bringSubviewToFront(pauseplayImage)
+            view.bringSubviewToFront(pauseButton)
+            view.bringSubviewToFront(timerLabel)
         } else {
             startCounting()
+            self.pausedLabel.isHidden = true
+            view.sendSubviewToBack(timerLabel)
+            view.sendSubviewToBack(pauseButton)
+            view.sendSubviewToBack(pauseplayImage)
+            view.sendSubviewToBack(darkerSpace)
         }
     }
     
