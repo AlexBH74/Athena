@@ -21,6 +21,9 @@ class EasyGameViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var darkerSpace: UILabel!
     @IBOutlet weak var pausedLabel: UILabel!
+    @IBOutlet weak var correctPopUp: UIView!
+    @IBOutlet weak var incorrectPopUp: UIView!
+    
     
     
     private var dataFrame: DataFrame?
@@ -71,6 +74,8 @@ class EasyGameViewController: UIViewController {
         self.blurEffect.isHidden = false
         self.startButton.isHidden = false
         self.pausedLabel.isHidden = true
+        self.correctPopUp.isHidden = true
+        self.incorrectPopUp.isHidden = true
     }
 
     
@@ -145,11 +150,13 @@ class EasyGameViewController: UIViewController {
         if incorrect == true {
             print("Incorrect!")
             resetTimer()
+            self.incorrectPopUp.isHidden = false
         } else if correct == true {
             print("Correct!")
             correctTimes.append(timeString)
             correctTimes = [] //comment out to make correct times save
             print(correctTimes)
+            self.correctPopUp.isHidden = false
         }
     }
     @IBAction func bClicked(_ sender: Any) {
@@ -166,11 +173,13 @@ class EasyGameViewController: UIViewController {
         if incorrect == true {
             print("Incorrect!")
             resetTimer()
+            self.incorrectPopUp.isHidden = false
         } else if correct == true {
             print("Correct!")
             correctTimes.append(timeString)
             correctTimes = [] //comment out to make correct times save
             print(correctTimes)
+            self.correctPopUp.isHidden = false
         }
     }
     @IBAction func cClicked(_ sender: Any) {
@@ -187,11 +196,13 @@ class EasyGameViewController: UIViewController {
         if incorrect == true {
             print("Incorrect!")
             resetTimer()
+            self.incorrectPopUp.isHidden = false
         } else if correct == true {
             print("Correct!")
             correctTimes.append(timeString)
             correctTimes = [] //comment out to make correct times save
             print(correctTimes)
+            self.correctPopUp.isHidden = false
         }
     }
     @IBAction func dClicked(_ sender: Any) {
@@ -208,11 +219,13 @@ class EasyGameViewController: UIViewController {
         if incorrect == true {
             print("Incorrect!")
             resetTimer()
+            self.incorrectPopUp.isHidden = false
         } else if correct == true {
             print("Correct!")
             correctTimes.append(timeString)
             correctTimes = [] //comment out to make correct times save
             print(correctTimes)
+            self.correctPopUp.isHidden = false
         }
     }
     
