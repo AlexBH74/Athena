@@ -9,21 +9,32 @@ import UIKit
 
 class CorrectViewController: UIViewController {
 
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    var time: String = ""
+    var lastInsertedTime: String = ""
+    
+    let correctTimes = UserDefaults.standard.object(forKey: "easyCorrectTimes") as? [String]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let popUpShowing = UserDefaults.standard.bool(forKey: "correctShowing")
+        if popUpShowing == true {
+            let index = correctTimes!.count
+            print(index)
+            
+            lastInsertedTime = correctTimes![index-1]
+            print(lastInsertedTime)
+            
+            time = "Time: " + lastInsertedTime
+            print(time)
+            
+            self.timeLabel.text = time
+        }
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func homeClicked(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "correctShowing")
     }
-    */
-
 }

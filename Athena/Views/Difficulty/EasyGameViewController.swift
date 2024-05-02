@@ -25,7 +25,6 @@ class EasyGameViewController: UIViewController {
     @IBOutlet weak var incorrectPopUp: UIView!
     
     
-    
     private var dataFrame: DataFrame?
     private var correctAnswer: String?
     private var trivia: [triviaScreen] = []
@@ -37,6 +36,8 @@ class EasyGameViewController: UIViewController {
     private var num: Int = 0
     var timerCounting: Bool = false
     var timeString: String = ""
+    
+    var timeDisplay: String = ""
     
     private var usedIndexes: Set<Int> {
         get {
@@ -68,14 +69,19 @@ class EasyGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadDataFrameFromCSV()
-        displayRandomTrivia()
-        
         self.blurEffect.isHidden = false
         self.startButton.isHidden = false
         self.pausedLabel.isHidden = true
         self.correctPopUp.isHidden = true
         self.incorrectPopUp.isHidden = true
+
+        loadDataFrameFromCSV()
+        displayRandomTrivia()
+        
+        correctPopUp.layer.cornerRadius = 25
+        correctPopUp.clipsToBounds = true
+        incorrectPopUp.layer.cornerRadius = 25
+        incorrectPopUp.clipsToBounds = true
     }
 
     
@@ -154,9 +160,11 @@ class EasyGameViewController: UIViewController {
         } else if correct == true {
             print("Correct!")
             correctTimes.append(timeString)
-            correctTimes = [] //comment out to make correct times save
+            //correctTimes = [] //comment out to make correct times save
             print(correctTimes)
+            UserDefaults.standard.set(true, forKey: "correctShowing")
             self.correctPopUp.isHidden = false
+            
         }
     }
     @IBAction func bClicked(_ sender: Any) {
