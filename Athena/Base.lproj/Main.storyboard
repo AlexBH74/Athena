@@ -880,6 +880,7 @@
         <!--Correct View Controller-->
         <scene sceneID="iie-Vp-r0S">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qps-xq-Yli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController restorationIdentifier="CorrectViewController" storyboardIdentifier="CorrectViewController" id="19G-BM-dCN" customClass="CorrectViewController" customModule="Athena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GJl-L5-kBw">
                         <rect key="frame" x="0.0" y="0.0" width="311" height="339"/>
@@ -946,7 +947,6 @@
                         <outlet property="timeLabel" destination="AI0-sc-YQD" id="NYw-Tm-Zn4"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qps-xq-Yli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4594.6564885496182" y="-530.63380281690138"/>
         </scene>

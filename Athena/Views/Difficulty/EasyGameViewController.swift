@@ -160,9 +160,8 @@ class EasyGameViewController: UIViewController {
         } else if correct == true {
             print("Correct!")
             correctTimes.append(timeString)
-            //correctTimes = [] //comment out to make correct times save
+            correctTimes = [] //comment out to make correct times save
             print(correctTimes)
-            UserDefaults.standard.set(true, forKey: "correctShowing")
             self.correctPopUp.isHidden = false
             
         }
