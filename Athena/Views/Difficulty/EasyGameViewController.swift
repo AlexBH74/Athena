@@ -28,16 +28,14 @@ class EasyGameViewController: UIViewController {
     private var dataFrame: DataFrame?
     private var correctAnswer: String?
     private var trivia: [triviaScreen] = []
-    var incorrect: Bool = false
-    var correct: Bool = false
+    private var incorrect: Bool = false
+    private var correct: Bool = false
     
     
     private var timer: Timer = Timer()
     private var num: Int = 0
-    var timerCounting: Bool = false
-    var timeString: String = ""
-    
-    var timeDisplay: String = ""
+    private var timerCounting: Bool = false
+    private var timeString: String = ""
     
     private var usedIndexes: Set<Int> {
         get {
@@ -85,14 +83,14 @@ class EasyGameViewController: UIViewController {
     }
 
     
-    func loadDataFrameFromCSV() {
+    private func loadDataFrameFromCSV() {
         dataFrame = DataFrame(fromCSVFile: "trivia_mc - Easy")
         if let dataFrame = dataFrame {
             print(dataFrame.columns)
         }
     }
 
-    func displayRandomTrivia() {
+    private func displayRandomTrivia() {
         let numberOfRows = dataFrame?.rows.count ?? 0
         var availableIndexes = Array(0..<numberOfRows)
         let answerRandomizer = [3, 4, 5, 6]
@@ -124,6 +122,8 @@ class EasyGameViewController: UIViewController {
             let answer3 = dataFrame!.rows[i][j[2]]
             let answer4 = dataFrame!.rows[i][j[3]]
             
+            UserDefaults.standard.set(correctAnswer, forKey: "easyCorrectAnswer")
+            
             trivia = [triviaScreen(category: category, question: question, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4)]
 
             categoryLabel.text = trivia.first?.category
@@ -154,16 +154,9 @@ class EasyGameViewController: UIViewController {
         stopCounting()
         
         if incorrect == true {
-            print("Incorrect!")
-            resetTimer()
-            self.incorrectPopUp.isHidden = false
+            answerIncorrect()
         } else if correct == true {
-            print("Correct!")
-            correctTimes.append(timeString)
-            correctTimes = [] //comment out to make correct times save
-            print(correctTimes)
-            self.correctPopUp.isHidden = false
-            
+            answerCorrect()
         }
     }
     @IBAction func bClicked(_ sender: Any) {
@@ -178,15 +171,9 @@ class EasyGameViewController: UIViewController {
         stopCounting()
         
         if incorrect == true {
-            print("Incorrect!")
-            resetTimer()
-            self.incorrectPopUp.isHidden = false
+            answerIncorrect()
         } else if correct == true {
-            print("Correct!")
-            correctTimes.append(timeString)
-            correctTimes = [] //comment out to make correct times save
-            print(correctTimes)
-            self.correctPopUp.isHidden = false
+            answerCorrect()
         }
     }
     @IBAction func cClicked(_ sender: Any) {
@@ -201,15 +188,9 @@ class EasyGameViewController: UIViewController {
         stopCounting()
         
         if incorrect == true {
-            print("Incorrect!")
-            resetTimer()
-            self.incorrectPopUp.isHidden = false
+            answerIncorrect()
         } else if correct == true {
-            print("Correct!")
-            correctTimes.append(timeString)
-            correctTimes = [] //comment out to make correct times save
-            print(correctTimes)
-            self.correctPopUp.isHidden = false
+            answerCorrect()
         }
     }
     @IBAction func dClicked(_ sender: Any) {
@@ -224,19 +205,13 @@ class EasyGameViewController: UIViewController {
         stopCounting()
         
         if incorrect == true {
-            print("Incorrect!")
-            resetTimer()
-            self.incorrectPopUp.isHidden = false
+            answerIncorrect()
         } else if correct == true {
-            print("Correct!")
-            correctTimes.append(timeString)
-            correctTimes = [] //comment out to make correct times save
-            print(correctTimes)
-            self.correctPopUp.isHidden = false
+            answerCorrect()
         }
     }
     
-    func startCounting() {
+    private func startCounting() {
         timerCounting = true
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
         let pauseImage = UIImage(named: "pause")
@@ -244,13 +219,13 @@ class EasyGameViewController: UIViewController {
         self.blurEffect.isHidden = true
     }
     
-    func stopCounting() {
+    private func stopCounting() {
         timerCounting = false
         timer.invalidate()
         self.blurEffect.isHidden = false
     }
     
-    func resetTimer() {
+    private func resetTimer() {
         self.num = 0
         self.timer.invalidate()
         self.timerLabel.text = self.makeTimeString(minutes: 0, seconds: 0)
@@ -289,15 +264,33 @@ class EasyGameViewController: UIViewController {
         }
     }
     
-    func secondsToMinutesSeconds(seconds: Int) -> (Int, Int) {
+    private func secondsToMinutesSeconds(seconds: Int) -> (Int, Int) {
         return (((seconds % 3600) / 60), ((seconds % 3600) % 60))
     }
     
-    func makeTimeString(minutes: Int, seconds: Int) -> String {
+    private func makeTimeString(minutes: Int, seconds: Int) -> String {
         timeString = ""
         timeString += String(format: "%02d", minutes)
         timeString += ":"
         timeString += String(format: "%02d", seconds)
         return timeString
+    }
+    
+    private func answerCorrect() {
+        print("Correct!")
+        correctTimes.append(timeString)
+        //correctTimes = [] //comment out to make correct times save
+        print(correctTimes)
+        UserDefaults.standard.set(true, forKey: "easyCorrectShowing")
+        self.correctPopUp.isHidden = false
+        navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
+    private func answerIncorrect() {
+        print("Incorrect!")
+        resetTimer()
+        UserDefaults.standard.set(true, forKey: "easyIncorrectShowing")
+        self.incorrectPopUp.isHidden = false
+        navigationItem.setHidesBackButton(true, animated: true)
     }
 }

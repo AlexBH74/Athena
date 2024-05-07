@@ -880,7 +880,6 @@
         <!--Correct View Controller-->
         <scene sceneID="iie-Vp-r0S">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qps-xq-Yli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController restorationIdentifier="CorrectViewController" storyboardIdentifier="CorrectViewController" id="19G-BM-dCN" customClass="CorrectViewController" customModule="Athena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GJl-L5-kBw">
                         <rect key="frame" x="0.0" y="0.0" width="311" height="339"/>
@@ -893,9 +892,9 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AI0-sc-YQD">
-                                <rect key="frame" x="51" y="188" width="209" height="28"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time - 00:00" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AI0-sc-YQD">
+                                <rect key="frame" x="51" y="198" width="209" height="28"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="28"/>
                                 <color key="textColor" red="0.94901967050000002" green="0.66666668650000005" blue="0.42352938649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -913,7 +912,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Back to Home">
-                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="16"/>
                                     <color key="baseForegroundColor" red="0.94901967050000002" green="0.66666668650000005" blue="0.42352938649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" red="0.039215687659999998" green="0.098039209840000002" blue="0.23921570180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -926,13 +925,13 @@
                         <color key="backgroundColor" red="0.098039209840000002" green="0.2117646933" blue="0.34117650989999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Wco-Dr-WVo" firstAttribute="trailing" secondItem="q5s-Kq-FS7" secondAttribute="trailing" constant="13" id="2HC-d8-fFo"/>
-                            <constraint firstItem="AI0-sc-YQD" firstAttribute="top" secondItem="Wco-Dr-WVo" secondAttribute="top" constant="129" id="5fy-nj-waV"/>
+                            <constraint firstItem="AI0-sc-YQD" firstAttribute="top" secondItem="Wco-Dr-WVo" secondAttribute="top" constant="139" id="5fy-nj-waV"/>
                             <constraint firstItem="lqv-Sz-3qe" firstAttribute="leading" secondItem="Wco-Dr-WVo" secondAttribute="leading" constant="31" id="97K-hg-mSd"/>
                             <constraint firstItem="Wco-Dr-WVo" firstAttribute="trailing" secondItem="ArP-tE-VDh" secondAttribute="trailing" constant="81" id="FHa-DO-glE"/>
                             <constraint firstItem="Wco-Dr-WVo" firstAttribute="bottom" secondItem="lqv-Sz-3qe" secondAttribute="bottom" constant="177" id="LFV-71-DCs"/>
                             <constraint firstItem="Wco-Dr-WVo" firstAttribute="trailing" secondItem="AI0-sc-YQD" secondAttribute="trailing" constant="51" id="QRY-j5-pCk"/>
                             <constraint firstItem="Wco-Dr-WVo" firstAttribute="bottom" secondItem="ArP-tE-VDh" secondAttribute="bottom" constant="30" id="Veu-Q3-Heo"/>
-                            <constraint firstItem="ArP-tE-VDh" firstAttribute="top" secondItem="AI0-sc-YQD" secondAttribute="bottom" constant="14" id="Yp7-l3-DR4"/>
+                            <constraint firstItem="ArP-tE-VDh" firstAttribute="top" secondItem="AI0-sc-YQD" secondAttribute="bottom" constant="4" id="Yp7-l3-DR4"/>
                             <constraint firstItem="Wco-Dr-WVo" firstAttribute="trailing" secondItem="lqv-Sz-3qe" secondAttribute="trailing" constant="31" id="Zkg-tI-HH2"/>
                             <constraint firstItem="lqv-Sz-3qe" firstAttribute="top" secondItem="Wco-Dr-WVo" secondAttribute="top" id="c2x-F8-Wxh"/>
                             <constraint firstItem="q5s-Kq-FS7" firstAttribute="top" secondItem="Wco-Dr-WVo" secondAttribute="top" constant="67" id="d7m-bd-70t"/>
@@ -940,13 +939,14 @@
                             <constraint firstItem="q5s-Kq-FS7" firstAttribute="leading" secondItem="Wco-Dr-WVo" secondAttribute="leading" constant="13" id="p85-cA-Z6h"/>
                             <constraint firstItem="ArP-tE-VDh" firstAttribute="leading" secondItem="Wco-Dr-WVo" secondAttribute="leading" constant="81" id="pBN-v6-Wdg"/>
                             <constraint firstItem="AI0-sc-YQD" firstAttribute="leading" secondItem="Wco-Dr-WVo" secondAttribute="leading" constant="51" id="rNr-LD-xZI"/>
-                            <constraint firstItem="Wco-Dr-WVo" firstAttribute="bottom" secondItem="AI0-sc-YQD" secondAttribute="bottom" constant="89" id="xuP-kh-vqh"/>
+                            <constraint firstItem="Wco-Dr-WVo" firstAttribute="bottom" secondItem="AI0-sc-YQD" secondAttribute="bottom" constant="79" id="xuP-kh-vqh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="timeLabel" destination="AI0-sc-YQD" id="NYw-Tm-Zn4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qps-xq-Yli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4594.6564885496182" y="-530.63380281690138"/>
         </scene>
@@ -973,10 +973,13 @@
                                         <rect key="frame" x="81" y="230" width="149" height="45"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Back to Home">
-                                            <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                                            <fontDescription key="titleFontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="16"/>
                                             <color key="baseForegroundColor" red="0.94901967050000002" green="0.66666668650000005" blue="0.42352938649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="baseBackgroundColor" red="0.039215687659999998" green="0.098039209840000002" blue="0.23921570180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="homeClicked:" destination="Bnt-EP-m3O" eventType="touchUpInside" id="Gn8-7r-1eU"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your got today's easy question wrong" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNl-zi-R7W">
                                         <rect key="frame" x="13" y="122" width="285" height="38"/>
@@ -985,14 +988,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The correct answer was:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3B-Ue-rwf">
-                                        <rect key="frame" x="45" y="168" width="221" height="29"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                        <rect key="frame" x="45" y="178" width="221" height="29"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
                                         <color key="textColor" red="0.94901967050000002" green="0.66666668650000005" blue="0.42352938649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="answer" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRZ-4c-tiV">
-                                        <rect key="frame" x="13" y="197" width="285" height="32"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
+                                        <rect key="frame" x="13" y="207" width="285" height="32"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
                                         <color key="textColor" red="0.94901967050000002" green="0.66666668650000005" blue="0.42352938649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1010,15 +1013,15 @@
                                     <constraint firstItem="47Z-Bi-Q34" firstAttribute="trailing" secondItem="gRZ-4c-tiV" secondAttribute="trailing" constant="13" id="RzS-Ek-cJM"/>
                                     <constraint firstItem="47Z-Bi-Q34" firstAttribute="trailing" secondItem="H3B-Ue-rwf" secondAttribute="trailing" constant="45" id="TP8-Zi-NQw"/>
                                     <constraint firstItem="rNl-zi-R7W" firstAttribute="top" secondItem="47Z-Bi-Q34" secondAttribute="top" constant="63" id="Trd-XM-XjD"/>
-                                    <constraint firstItem="H3B-Ue-rwf" firstAttribute="top" secondItem="47Z-Bi-Q34" secondAttribute="top" constant="109" id="YvX-97-hiB"/>
-                                    <constraint firstItem="47Z-Bi-Q34" firstAttribute="bottom" secondItem="gRZ-4c-tiV" secondAttribute="bottom" constant="76" id="aZS-YQ-MZ1"/>
+                                    <constraint firstItem="H3B-Ue-rwf" firstAttribute="top" secondItem="47Z-Bi-Q34" secondAttribute="top" constant="119" id="YvX-97-hiB"/>
+                                    <constraint firstItem="47Z-Bi-Q34" firstAttribute="bottom" secondItem="gRZ-4c-tiV" secondAttribute="bottom" constant="66" id="aZS-YQ-MZ1"/>
                                     <constraint firstItem="47Z-Bi-Q34" firstAttribute="trailing" secondItem="US1-uG-DBi" secondAttribute="trailing" constant="31" id="cnB-Ve-QSR"/>
                                     <constraint firstItem="KwB-GZ-wmf" firstAttribute="leading" secondItem="47Z-Bi-Q34" secondAttribute="leading" constant="81" id="kHn-PD-ZqK"/>
-                                    <constraint firstItem="KwB-GZ-wmf" firstAttribute="top" secondItem="gRZ-4c-tiV" secondAttribute="bottom" constant="1" id="lW7-W3-JqV"/>
+                                    <constraint firstItem="KwB-GZ-wmf" firstAttribute="top" secondItem="gRZ-4c-tiV" secondAttribute="bottom" constant="-9" id="lW7-W3-JqV"/>
                                     <constraint firstItem="47Z-Bi-Q34" firstAttribute="trailing" secondItem="rNl-zi-R7W" secondAttribute="trailing" constant="13" id="qk3-Z9-ZvO"/>
-                                    <constraint firstItem="gRZ-4c-tiV" firstAttribute="top" secondItem="47Z-Bi-Q34" secondAttribute="top" constant="138" id="rS0-ss-hX0"/>
+                                    <constraint firstItem="gRZ-4c-tiV" firstAttribute="top" secondItem="47Z-Bi-Q34" secondAttribute="top" constant="148" id="rS0-ss-hX0"/>
                                     <constraint firstItem="H3B-Ue-rwf" firstAttribute="leading" secondItem="47Z-Bi-Q34" secondAttribute="leading" constant="45" id="t3v-fv-O4w"/>
-                                    <constraint firstItem="47Z-Bi-Q34" firstAttribute="bottom" secondItem="H3B-Ue-rwf" secondAttribute="bottom" constant="108" id="tgU-kc-2zh"/>
+                                    <constraint firstItem="47Z-Bi-Q34" firstAttribute="bottom" secondItem="H3B-Ue-rwf" secondAttribute="bottom" constant="98" id="tgU-kc-2zh"/>
                                     <constraint firstItem="47Z-Bi-Q34" firstAttribute="bottom" secondItem="US1-uG-DBi" secondAttribute="bottom" constant="177" id="zY4-uj-7PH"/>
                                 </constraints>
                             </view>
@@ -1026,6 +1029,9 @@
                         <viewLayoutGuide key="safeArea" id="vlz-Sj-Ew5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="answerLabel" destination="gRZ-4c-tiV" id="keX-nS-GcV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7I-ml-Z1r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
