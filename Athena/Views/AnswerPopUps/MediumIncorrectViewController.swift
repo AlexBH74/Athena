@@ -1,13 +1,13 @@
 //
-//  IncorrectViewController.swift
+//  MediumIncorrectViewController.swift
 //  Athena
 //
-//  Created by Alex Henbest on 4/30/24.
+//  Created by Alex Henbest on 5/8/24.
 //
 
 import UIKit
 
-class IncorrectViewController: UIViewController {
+class MediumIncorrectViewController: UIViewController {
     
     @IBOutlet weak var answerLabel: UILabel!
     
@@ -16,19 +16,20 @@ class IncorrectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(incorrectDisplayCounter), userInfo: nil, repeats: true)
     }
 
-    @objc func timerCounter() -> Void {
-        let incorrectShowing = UserDefaults.standard.bool(forKey: "easyIncorrectShowing")
+    @objc func incorrectDisplayCounter() -> Void {
+        let incorrectShowing = UserDefaults.standard.bool(forKey: "mediumIncorrectShowing")
         if incorrectShowing == true{
-            let answer = UserDefaults.standard.string(forKey: "easyCorrectAnswer")
+            let answer = UserDefaults.standard.string(forKey: "mediumCorrectAnswer")
             self.answerLabel.text = answer
         }
     }
     
     @IBAction func homeClicked(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "easyIncorrectShowing")
+        UserDefaults.standard.set(false, forKey: "mediumIncorrectShowing")
+        timer.invalidate()
         goToHomescreen()
     }
     

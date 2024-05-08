@@ -1,13 +1,13 @@
 //
-//  CorrectViewController.swift
+//  MediumCorrectViewController.swift
 //  Athena
 //
-//  Created by Alex Henbest on 4/29/24.
+//  Created by Alex Henbest on 5/8/24.
 //
 
 import UIKit
 
-class CorrectViewController: UIViewController {
+class MediumCorrectViewController: UIViewController {
 
     @IBOutlet weak var timeLabel: UILabel!
     
@@ -20,13 +20,13 @@ class CorrectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(correctDisplayCounter), userInfo: nil, repeats: true)
     }
     
-    @objc func timerCounter() -> Void {
-        let display = UserDefaults.standard.bool(forKey: "easyCorrectShowing")
+    @objc func correctDisplayCounter() -> Void {
+        let display = UserDefaults.standard.bool(forKey: "mediumCorrectShowing")
         if display == true {
-            let correctTimes = UserDefaults.standard.object(forKey: "easyCorrectTimes") as? [String]
+            let correctTimes = UserDefaults.standard.object(forKey: "mediumCorrectTimes") as? [String]
             
             let index = correctTimes!.count
             
@@ -41,7 +41,8 @@ class CorrectViewController: UIViewController {
     }
     
     @IBAction func homeClicked(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "easyCorrectShowing")
+        UserDefaults.standard.set(false, forKey: "mediumCorrectShowing")
+        timer.invalidate()
         goToHomescreen()
     }
     
