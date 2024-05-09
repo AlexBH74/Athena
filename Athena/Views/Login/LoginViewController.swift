@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
         guard let email = usernameTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
+        
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let strongSelf = self else { return }
             
@@ -32,11 +33,45 @@ class LoginViewController: UIViewController {
                 strongSelf.invalidText.isHidden = false
                 print("Sign-in error: \(error.localizedDescription)")
             } else {
-                if strongSelf.keepSignedInSwitch.isOn {
-                    UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
+                let n = self?.retrieveCount()
+                if n == 0 {
+                    UserDefaults.standard.set(true, forKey: "firstTime")
                 }
-                strongSelf.performSegue(withIdentifier: "goToNext", sender: strongSelf)
+                
+                let firstTime = UserDefaults.standard.bool(forKey: "firstTime")
+                
+                if firstTime == true  {
+                    if strongSelf.keepSignedInSwitch.isOn {
+                        UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
+                    }
+                    //self?.incrementAndSaveCount()
+                    //UserDefaults.standard.set(false, forKey: "firstTime")
+                    strongSelf.performSegue(withIdentifier: "goToNext", sender: strongSelf)
+                }
+                else {
+                    if strongSelf.keepSignedInSwitch.isOn {
+                        UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
+                    }
+                    self?.goToHomescreen()
+                }
             }
         }
+    }
+    func goToHomescreen() {
+        let controller = storyboard?.instantiateViewController(identifier: "Homescreen") as! UINavigationController
+        controller.modalPresentationStyle = .fullScreen
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true, completion: nil)
+    }
+    
+    func incrementAndSaveCount() {
+        var count = UserDefaults.standard.integer(forKey: "countKey")
+        count += 1
+        print(count)
+        UserDefaults.standard.set(count, forKey: "countKey")
+    }
+    
+    func retrieveCount() -> Int {
+        return UserDefaults.standard.integer(forKey: "countKey")
     }
 }
