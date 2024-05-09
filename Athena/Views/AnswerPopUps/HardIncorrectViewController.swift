@@ -8,22 +8,37 @@
 import UIKit
 
 class HardIncorrectViewController: UIViewController {
-
+    
+    @IBOutlet weak var answerLabel: UILabel!
+    
+    private var timer: Timer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(incorrectDisplayCounter), userInfo: nil, repeats: true)
+    }
 
-        // Do any additional setup after loading the view.
+    @objc func incorrectDisplayCounter() -> Void {
+        let incorrectShowing = UserDefaults.standard.bool(forKey: "hardIncorrectShowing")
+        if incorrectShowing == true{
+            let answer = UserDefaults.standard.string(forKey: "hardCorrectAnswer")
+            self.answerLabel.text = answer
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func homeClicked(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "hardIncorrectShowing")
+        timer.invalidate()
+        goToHomescreen()
     }
-    */
+    
+    func goToHomescreen() {
+        let controller = storyboard?.instantiateViewController(identifier: "Homescreen") as! UINavigationController
+        controller.modalPresentationStyle = .fullScreen
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true, completion: nil)
+    }
 
 }
+

@@ -279,7 +279,7 @@ class MediumGameViewController: UIViewController {
     private func answerCorrect() {
         print("Correct!")
         correctTimes.append(timeString)
-        //correctTimes = [] //comment out to make correct times save
+        correctTimes = [] //comment out to make correct times save
         print(correctTimes)
         UserDefaults.standard.set(true, forKey: "mediumCorrectShowing")
         self.correctPopUp.isHidden = false
