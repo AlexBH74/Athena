@@ -31,6 +31,9 @@ class HardGameViewController: UIViewController {
     private var incorrect: Bool = false
     private var correct: Bool = false
     
+    private var date = Date()
+    private var currentDate: String?
+    let format = DateFormatter()
     
     private var timer: Timer = Timer()
     private var num: Int = 0
@@ -66,6 +69,9 @@ class HardGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        format.dateFormat = "yyyy-MM-dd"
+        currentDate = format.string(from: date)
         
         self.blurEffect.isHidden = false
         self.startButton.isHidden = false
@@ -281,6 +287,8 @@ class HardGameViewController: UIViewController {
         correctTimes = [] //comment out to make correct times save
         print(correctTimes)
         UserDefaults.standard.set(true, forKey: "hardCorrectShowing")
+        UserDefaults.standard.set(true, forKey: "hardDone")
+        UserDefaults.standard.set(currentDate, forKey: "hardLastDate")
         self.correctPopUp.isHidden = false
         navigationItem.setHidesBackButton(true, animated: true)
     }
@@ -289,6 +297,8 @@ class HardGameViewController: UIViewController {
         print("Incorrect!")
         resetTimer()
         UserDefaults.standard.set(true, forKey: "hardIncorrectShowing")
+        UserDefaults.standard.set(true, forKey: "hardDone")
+        UserDefaults.standard.set(currentDate, forKey: "hardLastDate")
         self.incorrectPopUp.isHidden = false
         navigationItem.setHidesBackButton(true, animated: true)
     }

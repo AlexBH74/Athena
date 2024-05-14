@@ -31,6 +31,9 @@ class MediumGameViewController: UIViewController {
     private var incorrect: Bool = false
     private var correct: Bool = false
     
+    private var date = Date()
+    private var currentDate: String?
+    let format = DateFormatter()
     
     private var timer: Timer = Timer()
     private var num: Int = 0
@@ -66,6 +69,9 @@ class MediumGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        format.dateFormat = "yyyy-MM-dd"
+        currentDate = format.string(from: date)
         
         self.blurEffect.isHidden = false
         self.startButton.isHidden = false
@@ -282,6 +288,8 @@ class MediumGameViewController: UIViewController {
         correctTimes = [] //comment out to make correct times save
         print(correctTimes)
         UserDefaults.standard.set(true, forKey: "mediumCorrectShowing")
+        UserDefaults.standard.set(true, forKey: "mediumDone")
+        UserDefaults.standard.set(currentDate, forKey: "mediumLastDate")
         self.correctPopUp.isHidden = false
         navigationItem.setHidesBackButton(true, animated: true)
     }
@@ -290,6 +298,8 @@ class MediumGameViewController: UIViewController {
         print("Incorrect!")
         resetTimer()
         UserDefaults.standard.set(true, forKey: "mediumIncorrectShowing")
+        UserDefaults.standard.set(true, forKey: "mediumDone")
+        UserDefaults.standard.set(currentDate, forKey: "mediumLastDate")
         self.incorrectPopUp.isHidden = false
         navigationItem.setHidesBackButton(true, animated: true)
     }
