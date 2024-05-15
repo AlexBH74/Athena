@@ -24,6 +24,7 @@ class EasyGameViewController: UIViewController {
     @IBOutlet weak var pausedLabel: UILabel!
     @IBOutlet weak var correctPopUp: UIView!
     @IBOutlet weak var incorrectPopUp: UIView!
+    @IBOutlet weak var homeBtn: UIButton!
     
     
     private var dataFrame: DataFrame?
@@ -40,6 +41,8 @@ class EasyGameViewController: UIViewController {
     private var num: Int = 0
     private var timerCounting: Bool = false
     private var timeString: String = ""
+    private var timeSaves: Bool?
+
     
     private var usedIndexes: Set<Int> {
         get {
@@ -229,6 +232,7 @@ class EasyGameViewController: UIViewController {
     private func stopCounting() {
         timerCounting = false
         timer.invalidate()
+        UserDefaults.standard.set(false, forKey: "easyTimeSaves")
         self.blurEffect.isHidden = false
     }
     
@@ -239,14 +243,22 @@ class EasyGameViewController: UIViewController {
     }
     
     @objc func timerCounter() -> Void {
+        timeSaves = UserDefaults.standard.bool(forKey: "easyTimeSaves")
+        
+        if timeSaves == true {
+            num = UserDefaults.standard.integer(forKey: "easyTimerNum")
+            UserDefaults.standard.set(false, forKey: "easyTimeSaves")
+            print(num)
+        }
+        
         num = num + 1
+        UserDefaults.standard.set(num, forKey: "easyTimerNum")
+        
         let time = secondsToMinutesSeconds(seconds: num)
         timeString = makeTimeString(minutes: time.0, seconds: time.1)
         if timeString == "60:00" {
-            incorrect = true
-            print("Incorrect!")
             stopCounting()
-            resetTimer()
+            answerIncorrect()
         } else {
             self.timerLabel.text = timeString
         }
@@ -291,8 +303,11 @@ class EasyGameViewController: UIViewController {
         UserDefaults.standard.set(true, forKey: "easyCorrectShowing")
         UserDefaults.standard.set(true, forKey: "easyDone")
         UserDefaults.standard.set(currentDate, forKey: "easyLastDate")
+        UserDefaults.standard.set(0, forKey: "easyTimerNum")
+        UserDefaults.standard.set(false, forKey: "easyTimeSaves")
         self.correctPopUp.isHidden = false
         navigationItem.setHidesBackButton(true, animated: true)
+        self.homeBtn.isHidden = true
     }
     
     private func answerIncorrect() {
@@ -301,7 +316,23 @@ class EasyGameViewController: UIViewController {
         UserDefaults.standard.set(true, forKey: "easyIncorrectShowing")
         UserDefaults.standard.set(true, forKey: "easyDone")
         UserDefaults.standard.set(currentDate, forKey: "easyLastDate")
+        UserDefaults.standard.set(0, forKey: "easyTimerNum")
+        UserDefaults.standard.set(currentDate, forKey: "easyLastReset")
+        UserDefaults.standard.set(false, forKey: "easyTimeSaves")
         self.incorrectPopUp.isHidden = false
         navigationItem.setHidesBackButton(true, animated: true)
+        self.homeBtn.isHidden = true
+    }
+    
+    @IBAction func homeClicked(_ sender: Any) {
+        stopCounting()
+        goToHomescreen()
+    }
+    
+    func goToHomescreen() {
+        let controller = storyboard?.instantiateViewController(identifier: "Homescreen") as! UINavigationController
+        controller.modalPresentationStyle = .fullScreen
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true, completion: nil)
     }
 }
