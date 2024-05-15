@@ -16,7 +16,6 @@ class HomescreenViewController: UIViewController {
     private var hard = UserDefaults.standard.bool(forKey: "hardDone")
     
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var easyLockImage: UIImageView!
     @IBOutlet weak var mediumLockImage: UIImageView!
     @IBOutlet weak var hardLockImage: UIImageView!
@@ -34,8 +33,8 @@ class HomescreenViewController: UIViewController {
         format.dateFormat = "yyyy-MM-dd"
         let date = format.string(from: currentDate)
         
+        //UserDefaults.standard.set(nil, forKey: "easyLastDate") //comment out
         var easyLastDate = UserDefaults.standard.string(forKey: "easyLastDate")
-        //easyLastDate = nil  //comment out
         if easyLastDate == nil {
             easyLastDate = "2024-01-01"
             print(easyLastDate!)
@@ -60,9 +59,8 @@ class HomescreenViewController: UIViewController {
             print(easy)
         }
         
-        
+        //UserDefaults.standard.set(nil, forKey: "mediumLastDate") //comment out
         var mediumLastDate = UserDefaults.standard.string(forKey: "mediumLastDate")
-        //mediumLastDate = nil  //comment out
         if mediumLastDate == nil {
             mediumLastDate = "2024-01-01"
             print(mediumLastDate!)
@@ -87,9 +85,8 @@ class HomescreenViewController: UIViewController {
             print(medium)
         }
 
-        
+        //UserDefaults.standard.set(nil, forKey: "hardLastDate") //comment out
         var hardLastDate = UserDefaults.standard.string(forKey: "hardLastDate")
-        //hardLastDate = nil  //comment out
         if hardLastDate == nil {
             hardLastDate = "2024-01-01"
             print(hardLastDate!)
@@ -116,18 +113,6 @@ class HomescreenViewController: UIViewController {
         
         addShadows()
         
-        logOutButton.addTarget(self, action: #selector(logOutButtonTapped(_:)), for: .touchUpInside)
-        
-    }
-    
-    @objc func logOutButtonTapped(_ sender: UIButton) {
-
-        UserDefaults.standard.set(false, forKey: "keepSignedIn")
-        
-        let controller = storyboard?.instantiateViewController(identifier: "LoginPage") as! UINavigationController
-        controller.modalPresentationStyle = .fullScreen
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true, completion: nil)
     }
     
     func addShadows() {

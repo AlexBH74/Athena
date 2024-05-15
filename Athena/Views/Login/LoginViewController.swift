@@ -41,17 +41,13 @@ class LoginViewController: UIViewController {
                 let firstTime = UserDefaults.standard.bool(forKey: "firstTime")
                 
                 if firstTime == true  {
-                    if strongSelf.keepSignedInSwitch.isOn {
-                        UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
-                    }
-                    //self?.incrementAndSaveCount()
-                    //UserDefaults.standard.set(false, forKey: "firstTime")
+                    UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
+                    self?.incrementAndSaveCount()
+                    UserDefaults.standard.set(false, forKey: "firstTime")
                     strongSelf.performSegue(withIdentifier: "goToNext", sender: strongSelf)
                 }
                 else {
-                    if strongSelf.keepSignedInSwitch.isOn {
-                        UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
-                    }
+                    UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
                     self?.goToHomescreen()
                 }
             }

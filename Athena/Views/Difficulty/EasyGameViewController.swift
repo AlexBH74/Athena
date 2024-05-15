@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EasyGameViewController: UIViewController {
     @IBOutlet weak var questionText: UILabel!
