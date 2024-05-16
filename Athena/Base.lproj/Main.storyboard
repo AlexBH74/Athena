@@ -533,7 +533,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="G3u-5q-b6Q">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="aBW-rG-9lX">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9nm-Bg-zkl">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9nm-Bg-zkl">
                                 <rect key="frame" x="15.999999999999993" y="6.3333333333333339" width="125.33333333333331" height="31.666666666666664"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -784,12 +784,28 @@
                         <viewLayoutGuide key="safeArea" id="TLE-o7-NOz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SUH-mS-Jml"/>
+                    <navigationItem key="navigationItem" id="SUH-mS-Jml">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="9Nl-9O-yIE">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="mkz-EW-a4g">
+                                <rect key="frame" x="16" y="6" width="126" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back to Home">
+                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
+                                    <color key="baseForegroundColor" red="0.039215687659999998" green="0.098039209840000002" blue="0.23921570180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="homeClicked:" destination="vDj-Ka-Agc" eventType="touchUpInside" id="Hgj-kv-K4B"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="blurEffect" destination="Iy5-F1-Bgh" id="rce-K8-6dv"/>
                         <outlet property="categoryLabel" destination="Z5p-aF-dR0" id="rXf-JO-ZR3"/>
                         <outlet property="correctPopUp" destination="GGd-B6-g92" id="W0E-Ob-pe0"/>
                         <outlet property="darkerSpace" destination="epa-t3-wYF" id="ODi-JR-3DX"/>
+                        <outlet property="homeBtn" destination="mkz-EW-a4g" id="BgY-Ye-aAy"/>
                         <outlet property="incorrectPopUp" destination="gZa-Ri-rGh" id="Flp-vl-Kym"/>
                         <outlet property="pauseButton" destination="7ft-EC-veh" id="sEu-o1-qqz"/>
                         <outlet property="pausedLabel" destination="Bsh-6B-gVy" id="UqG-Sh-Ldl"/>
@@ -1021,12 +1037,28 @@
                         <viewLayoutGuide key="safeArea" id="ml8-rd-4mS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Cy5-vs-4Ca"/>
+                    <navigationItem key="navigationItem" id="Cy5-vs-4Ca">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Luf-53-hV4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="T2B-uf-oBx">
+                                <rect key="frame" x="16" y="6" width="126" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back to Home">
+                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
+                                    <color key="baseForegroundColor" red="0.039215687659999998" green="0.098039209840000002" blue="0.23921570180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="homeClicked:" destination="sMQ-2y-pL6" eventType="touchUpInside" id="1Ki-Y0-RJU"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="blurEffect" destination="xgM-Pp-UFu" id="L58-hp-moe"/>
                         <outlet property="categoryLabel" destination="WQq-Xp-hTl" id="sXf-GW-KRl"/>
                         <outlet property="correctPopUp" destination="3Yf-Ei-eSZ" id="NLV-zM-tQW"/>
                         <outlet property="darkerSpace" destination="BPq-8E-p6b" id="qn6-B0-4fO"/>
+                        <outlet property="homeBtn" destination="T2B-uf-oBx" id="xac-hZ-bPp"/>
                         <outlet property="incorrectPopUp" destination="IKB-XD-MO5" id="oit-R7-mdg"/>
                         <outlet property="pauseButton" destination="GtS-U0-fHD" id="KyJ-be-MCe"/>
                         <outlet property="pausedLabel" destination="wvT-HG-QKH" id="wyz-5v-jlK"/>

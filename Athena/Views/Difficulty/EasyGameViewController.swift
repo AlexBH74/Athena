@@ -90,6 +90,8 @@ class EasyGameViewController: UIViewController {
         correctPopUp.clipsToBounds = true
         incorrectPopUp.layer.cornerRadius = 25
         incorrectPopUp.clipsToBounds = true
+        
+        addShadows()
     }
 
     
@@ -298,13 +300,14 @@ class EasyGameViewController: UIViewController {
     private func answerCorrect() {
         print("Correct!")
         correctTimes.append(timeString)
-        correctTimes = [] //comment out to make correct times save
+        //correctTimes = [] //comment out to make correct times save
         print(correctTimes)
         UserDefaults.standard.set(true, forKey: "easyCorrectShowing")
         UserDefaults.standard.set(true, forKey: "easyDone")
         UserDefaults.standard.set(currentDate, forKey: "easyLastDate")
         UserDefaults.standard.set(0, forKey: "easyTimerNum")
         UserDefaults.standard.set(false, forKey: "easyTimeSaves")
+        UserDefaults.standard.set(currentDate, forKey: "easyLastReset")
         self.correctPopUp.isHidden = false
         navigationItem.setHidesBackButton(true, animated: true)
         self.homeBtn.isHidden = true
@@ -334,5 +337,31 @@ class EasyGameViewController: UIViewController {
         controller.modalPresentationStyle = .fullScreen
         controller.modalTransitionStyle = .crossDissolve
         present(controller, animated: true, completion: nil)
+    }
+    
+    func addShadows() {
+        self.titleAnswer1.layer.shadowColor = UIColor(red: 10/255, green: 30/255, blue: 50/255, alpha: 1).cgColor
+        self.titleAnswer1.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.titleAnswer1.layer.shadowOpacity = 1.0
+        self.titleAnswer1.layer.shadowRadius = 1.0
+        self.titleAnswer1.layer.masksToBounds = false
+        
+        self.titleAnswer2.layer.shadowColor = UIColor(red: 10/255, green: 30/255, blue: 50/255, alpha: 1).cgColor
+        self.titleAnswer2.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.titleAnswer2.layer.shadowOpacity = 1.0
+        self.titleAnswer2.layer.shadowRadius = 1.0
+        self.titleAnswer2.layer.masksToBounds = false
+        
+        self.titleAnswer3.layer.shadowColor = UIColor(red: 10/255, green: 30/255, blue: 50/255, alpha: 1).cgColor
+        self.titleAnswer3.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.titleAnswer3.layer.shadowOpacity = 1.0
+        self.titleAnswer3.layer.shadowRadius = 1.0
+        self.titleAnswer3.layer.masksToBounds = false
+        
+        self.titleAnswer4.layer.shadowColor = UIColor(red: 10/255, green: 30/255, blue: 50/255, alpha: 1).cgColor
+        self.titleAnswer4.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.titleAnswer4.layer.shadowOpacity = 1.0
+        self.titleAnswer4.layer.shadowRadius = 1.0
+        self.titleAnswer4.layer.masksToBounds = false
     }
 }

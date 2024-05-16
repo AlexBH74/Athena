@@ -33,7 +33,7 @@ class HomescreenViewController: UIViewController {
         format.dateFormat = "yyyy-MM-dd"
         let date = format.string(from: currentDate)
         
-        UserDefaults.standard.set(nil, forKey: "easyLastDate") //comment out
+        //UserDefaults.standard.set(nil, forKey: "easyLastDate") //comment out
         var easyLastDate = UserDefaults.standard.string(forKey: "easyLastDate")
         if easyLastDate == nil {
             easyLastDate = "2024-01-01"
@@ -63,7 +63,7 @@ class HomescreenViewController: UIViewController {
             print(easy)
         }
         
-        UserDefaults.standard.set(nil, forKey: "mediumLastDate") //comment out
+        //UserDefaults.standard.set(nil, forKey: "mediumLastDate") //comment out
         var mediumLastDate = UserDefaults.standard.string(forKey: "mediumLastDate")
         if mediumLastDate == nil {
             mediumLastDate = "2024-01-01"
@@ -78,6 +78,10 @@ class HomescreenViewController: UIViewController {
         } else {
             print(date)
             UserDefaults.standard.set(false, forKey: "mediumDone")
+            if date != UserDefaults.standard.string(forKey: "mediumLastReset") {
+                UserDefaults.standard.set(0, forKey: "mediumTimerNum")
+                UserDefaults.standard.set(date, forKey: "mediumLastReset")
+            }
             medium = UserDefaults.standard.bool(forKey: "mediumDone")
         }
         
@@ -89,7 +93,7 @@ class HomescreenViewController: UIViewController {
             print(medium)
         }
 
-        UserDefaults.standard.set(nil, forKey: "hardLastDate") //comment out
+        //UserDefaults.standard.set(nil, forKey: "hardLastDate") //comment out
         var hardLastDate = UserDefaults.standard.string(forKey: "hardLastDate")
         if hardLastDate == nil {
             hardLastDate = "2024-01-01"
@@ -104,6 +108,10 @@ class HomescreenViewController: UIViewController {
         } else {
             print(date)
             UserDefaults.standard.set(false, forKey: "hardDone")
+            if date != UserDefaults.standard.string(forKey: "hardLastReset") {
+                UserDefaults.standard.set(0, forKey: "hardTimerNum")
+                UserDefaults.standard.set(date, forKey: "hardLastReset")
+            }
             hard = UserDefaults.standard.bool(forKey: "hardDone")
         }
         
