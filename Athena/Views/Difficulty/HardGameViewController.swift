@@ -26,6 +26,7 @@ class HardGameViewController: UIViewController {
     @IBOutlet weak var incorrectPopUp: UIView!
     @IBOutlet weak var homeBtn: UIButton!
     
+    private var i: Int?
     
     private var dataFrame: DataFrame?
     private var correctAnswer: String?
@@ -116,39 +117,45 @@ class HardGameViewController: UIViewController {
             availableIndexes = Array(0..<numberOfRows)
         }
         
-        // Randomly select a row index
-        if let i = availableIndexes.randomElement() {
-            print("Randomly selected row index: \(i)")
-            
-            usedIndexes.insert(i)
+        var indexSaves = UserDefaults.standard.bool(forKey: "hardIndexSaves")
+        if indexSaves == true {
+            i = UserDefaults.standard.integer(forKey: "savedHardI")
+            print("Row index: \(i!)")
+        } else {
+            i = availableIndexes.randomElement()
+            UserDefaults.standard.set(i, forKey: "savedHardI")
+            usedIndexes.insert(i!)
             usedIndexes.removeAll() //comment out if i want used indexes to save
-            
-            let j = answerRandomizer.shuffled()
-            print(j)
-            
-            let category = dataFrame!.rows[i][0]
-            let question = dataFrame!.rows[i][2]
-            correctAnswer = dataFrame!.rows[i][3]
-            let answer1 = dataFrame!.rows[i][j[0]]
-            let answer2 = dataFrame!.rows[i][j[1]]
-            let answer3 = dataFrame!.rows[i][j[2]]
-            let answer4 = dataFrame!.rows[i][j[3]]
-            
-            UserDefaults.standard.set(correctAnswer, forKey: "hardCorrectAnswer")
-            
-            trivia = [triviaScreen(category: category, question: question, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4)]
-
-            categoryLabel.text = trivia.first?.category
-            questionText.text = trivia.first?.question
-            titleAnswer1.setTitle(trivia.first?.answer1, for: .normal)
-            titleAnswer2.setTitle(trivia.first?.answer2, for: .normal)
-            titleAnswer3.setTitle(trivia.first?.answer3, for: .normal)
-            titleAnswer4.setTitle(trivia.first?.answer4, for: .normal)
+            print(usedIndexes)
+            print("Randomly selected row index: \(i!)")
         }
+            
+        let j = answerRandomizer.shuffled()
+        print(j)
+            
+        let category = dataFrame!.rows[i!][0]
+        let question = dataFrame!.rows[i!][2]
+        correctAnswer = dataFrame!.rows[i!][3]
+        let answer1 = dataFrame!.rows[i!][j[0]]
+        let answer2 = dataFrame!.rows[i!][j[1]]
+        let answer3 = dataFrame!.rows[i!][j[2]]
+        let answer4 = dataFrame!.rows[i!][j[3]]
+            
+        UserDefaults.standard.set(correctAnswer, forKey: "hardCorrectAnswer")
+            
+        trivia = [triviaScreen(category: category, question: question, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4)]
+
+        categoryLabel.text = trivia.first?.category
+        questionText.text = trivia.first?.question
+        titleAnswer1.setTitle(trivia.first?.answer1, for: .normal)
+        titleAnswer2.setTitle(trivia.first?.answer2, for: .normal)
+        titleAnswer3.setTitle(trivia.first?.answer3, for: .normal)
+        titleAnswer4.setTitle(trivia.first?.answer4, for: .normal)
     }
 
     @IBAction func startClicked(_ sender: Any) {
         startCounting()
+        UserDefaults.standard.set(true, forKey: "hardIndexSaves")
         self.startButton.isHidden = true
     }
     
@@ -299,13 +306,14 @@ class HardGameViewController: UIViewController {
     private func answerCorrect() {
         print("Correct!")
         correctTimes.append(timeString)
-        //correctTimes = [] //comment out to make correct times save
+        correctTimes = [] //comment out to make correct times save
         print(correctTimes)
         UserDefaults.standard.set(true, forKey: "hardCorrectShowing")
         UserDefaults.standard.set(true, forKey: "hardDone")
         UserDefaults.standard.set(currentDate, forKey: "hardLastDate")
         UserDefaults.standard.set(0, forKey: "hardTimerNum")
         UserDefaults.standard.set(false, forKey: "hardTimeSaves")
+        UserDefaults.standard.set(false, forKey: "hardIndexSaves")
         UserDefaults.standard.set(currentDate, forKey: "hardLastReset")
         self.correctPopUp.isHidden = false
         navigationItem.setHidesBackButton(true, animated: true)
@@ -319,6 +327,7 @@ class HardGameViewController: UIViewController {
         UserDefaults.standard.set(currentDate, forKey: "hardLastDate")
         UserDefaults.standard.set(0, forKey: "hardTimerNum")
         UserDefaults.standard.set(false, forKey: "hardTimeSaves")
+        UserDefaults.standard.set(false, forKey: "hardIndexSaves")
         UserDefaults.standard.set(currentDate, forKey: "hardLastReset")
         self.incorrectPopUp.isHidden = false
         navigationItem.setHidesBackButton(true, animated: true)
