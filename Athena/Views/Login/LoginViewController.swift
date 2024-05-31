@@ -12,7 +12,6 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var keepSignedInSwitch: UISwitch!
     @IBOutlet weak var invalidText: UILabel!
     
     override func viewDidLoad() {
@@ -65,6 +64,7 @@ class LoginViewController: UIViewController {
         count += 1
         print(count)
         UserDefaults.standard.set(count, forKey: "countKey")
+        UserDefaults.standard.set(0, forKey: "countKey") //comment out
     }
     
     func retrieveCount() -> Int {

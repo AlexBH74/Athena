@@ -15,7 +15,9 @@ class RootViewController: UIViewController {
         
         self.navigationItem.setHidesBackButton(true, animated: true)
         
+        UserDefaults.standard.setValue(false, forKey: "keepSignedIn") //comment out
         let isLoggedIn = UserDefaults.standard.bool(forKey: "keepSignedIn")
+
         if isLoggedIn == true {
             goToHomescreen()
         }

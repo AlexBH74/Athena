@@ -63,7 +63,7 @@ class OnboardingViewController: UIViewController {
             currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)
             print(indexPath)
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            self.collectionView.scrollToItem(at: indexPath, at: [.centeredHorizontally], animated: true)
         }
     }
     

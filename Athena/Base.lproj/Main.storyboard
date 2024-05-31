@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dcu-Lc-vb8">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="X3L-Zk-DY2">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="X3L-Zk-DY2">
                                 <rect key="frame" x="0.0" y="86" width="393" height="736"/>
                                 <color key="backgroundColor" red="1" green="0.6710775578" blue="0.42474606469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MAN-Qx-rNO">
@@ -83,7 +83,7 @@
                                 </connections>
                             </collectionView>
                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="PBy-VN-g0Q">
-                                <rect key="frame" x="122" y="758" width="150" height="13"/>
+                                <rect key="frame" x="122" y="741.33333333333337" width="150" height="25.666666666666629"/>
                                 <color key="pageIndicatorTintColor" red="0.67406071375789034" green="0.77003892201681401" blue="0.80987610479797978" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="currentPageIndicatorTintColor" red="0.039215687659999998" green="0.098039209840000002" blue="0.23921570180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pageControl>
@@ -108,14 +108,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="0.67107755782327438" blue="0.4247460647328184" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="fvZ-Fv-ybu" firstAttribute="top" secondItem="PBy-VN-g0Q" secondAttribute="bottom" constant="-1" id="3fK-u5-tDR"/>
+                            <constraint firstItem="fvZ-Fv-ybu" firstAttribute="top" secondItem="PBy-VN-g0Q" secondAttribute="bottom" constant="3" id="3fK-u5-tDR"/>
                             <constraint firstItem="fvZ-Fv-ybu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="122" id="9gE-3U-FMJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PBy-VN-g0Q" secondAttribute="trailing" constant="121" id="Fbk-Bw-lC5"/>
                             <constraint firstItem="PBy-VN-g0Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="122" id="HSx-fG-Ecr"/>
+                            <constraint firstItem="PBy-VN-g0Q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="638.33000000000004" id="Ixh-Y2-aMM"/>
                             <constraint firstItem="X3L-Zk-DY2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mc8-qO-fkN"/>
-                            <constraint firstItem="PBy-VN-g0Q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="655" id="XYc-oE-le4"/>
                             <constraint firstItem="X3L-Zk-DY2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZU3-Qx-AZR"/>
-                            <constraint firstItem="fvZ-Fv-ybu" firstAttribute="top" secondItem="PBy-VN-g0Q" secondAttribute="bottom" constant="-1" id="dcL-EF-EXa"/>
                             <constraint firstItem="X3L-Zk-DY2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-17" id="prB-C8-yUL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fvZ-Fv-ybu" secondAttribute="trailing" constant="122" id="tCP-IT-ZcY"/>
                             <constraint firstItem="fvZ-Fv-ybu" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="4" id="uAY-0v-ReM"/>
