@@ -33,7 +33,7 @@ class HomescreenViewController: UIViewController {
         format.dateFormat = "yyyy-MM-dd"
         let date = format.string(from: currentDate)
         
-        UserDefaults.standard.set(nil, forKey: "easyLastDate") //comment out
+        //UserDefaults.standard.set(nil, forKey: "easyLastDate") //comment out
         var easyLastDate = UserDefaults.standard.string(forKey: "easyLastDate")
         if easyLastDate == nil {
             easyLastDate = "2024-01-01"
@@ -64,7 +64,7 @@ class HomescreenViewController: UIViewController {
             print(easy)
         }
         
-        UserDefaults.standard.set(nil, forKey: "mediumLastDate") //comment out
+        //UserDefaults.standard.set(nil, forKey: "mediumLastDate") //comment out
         var mediumLastDate = UserDefaults.standard.string(forKey: "mediumLastDate")
         if mediumLastDate == nil {
             mediumLastDate = "2024-01-01"
@@ -95,7 +95,7 @@ class HomescreenViewController: UIViewController {
             print(medium)
         }
 
-        UserDefaults.standard.set(nil, forKey: "hardLastDate") //comment out
+        //UserDefaults.standard.set(nil, forKey: "hardLastDate") //comment out
         var hardLastDate = UserDefaults.standard.string(forKey: "hardLastDate")
         if hardLastDate == nil {
             hardLastDate = "2024-01-01"
