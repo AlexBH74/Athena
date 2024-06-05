@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
         count += 1
         print(count)
         UserDefaults.standard.set(count, forKey: "countKey")
-        UserDefaults.standard.set(0, forKey: "countKey") //comment out
+        //UserDefaults.standard.set(0, forKey: "countKey") //comment out
     }
     
     func retrieveCount() -> Int {

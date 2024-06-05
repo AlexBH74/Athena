@@ -125,7 +125,7 @@ class MediumGameViewController: UIViewController {
             i = availableIndexes.randomElement()
             UserDefaults.standard.set(i, forKey: "savedMediumI")
             usedIndexes.insert(i!)
-            usedIndexes.removeAll() //comment out if i want used indexes to save
+            //usedIndexes.removeAll() //comment out if i want used indexes to save
             print(usedIndexes)
             print("Randomly selected row index: \(i!)")
         }
@@ -309,7 +309,7 @@ class MediumGameViewController: UIViewController {
     private func answerCorrect() {
         print("Correct!")
         correctTimes.append(timeString)
-        correctTimes = [] //comment out to make correct times save
+        //correctTimes = [] //comment out to make correct times save
         print(correctTimes)
         UserDefaults.standard.set(true, forKey: "mediumCorrectShowing")
         UserDefaults.standard.set(true, forKey: "mediumDone")
