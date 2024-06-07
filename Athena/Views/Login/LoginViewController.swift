@@ -12,7 +12,6 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var keepSignedInSwitch: UISwitch!
     @IBOutlet weak var invalidText: UILabel!
     
     override func viewDidLoad() {
@@ -41,17 +40,13 @@ class LoginViewController: UIViewController {
                 let firstTime = UserDefaults.standard.bool(forKey: "firstTime")
                 
                 if firstTime == true  {
-                    if strongSelf.keepSignedInSwitch.isOn {
-                        UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
-                    }
-                    //self?.incrementAndSaveCount()
-                    //UserDefaults.standard.set(false, forKey: "firstTime")
+                    UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
+                    self?.incrementAndSaveCount()
+                    UserDefaults.standard.set(false, forKey: "firstTime")
                     strongSelf.performSegue(withIdentifier: "goToNext", sender: strongSelf)
                 }
                 else {
-                    if strongSelf.keepSignedInSwitch.isOn {
-                        UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
-                    }
+                    UserDefaults.standard.setValue(true, forKey: "keepSignedIn")
                     self?.goToHomescreen()
                 }
             }
@@ -69,6 +64,7 @@ class LoginViewController: UIViewController {
         count += 1
         print(count)
         UserDefaults.standard.set(count, forKey: "countKey")
+        //UserDefaults.standard.set(0, forKey: "countKey") //comment out
     }
     
     func retrieveCount() -> Int {

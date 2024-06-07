@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EasyGameViewController: UIViewController {
     @IBOutlet weak var questionText: UILabel!
@@ -23,7 +24,9 @@ class EasyGameViewController: UIViewController {
     @IBOutlet weak var pausedLabel: UILabel!
     @IBOutlet weak var correctPopUp: UIView!
     @IBOutlet weak var incorrectPopUp: UIView!
+    @IBOutlet weak var homeBtn: UIButton!
     
+    private var i: Int?
     
     private var dataFrame: DataFrame?
     private var correctAnswer: String?
@@ -39,6 +42,8 @@ class EasyGameViewController: UIViewController {
     private var num: Int = 0
     private var timerCounting: Bool = false
     private var timeString: String = ""
+    private var timeSaves: Bool?
+
     
     private var usedIndexes: Set<Int> {
         get {
@@ -86,6 +91,8 @@ class EasyGameViewController: UIViewController {
         correctPopUp.clipsToBounds = true
         incorrectPopUp.layer.cornerRadius = 25
         incorrectPopUp.clipsToBounds = true
+        
+        addShadows()
     }
 
     
@@ -110,40 +117,46 @@ class EasyGameViewController: UIViewController {
             availableIndexes = Array(0..<numberOfRows)
         }
         
-        // Randomly select a row index
-        if let i = availableIndexes.randomElement() {
-            print("Randomly selected row index: \(i)")
-            
-            usedIndexes.insert(i)
-            usedIndexes.removeAll() //comment out if i want used indexes to save
-            
-            let j = answerRandomizer.shuffled()
-            print(j)
-            
-            let category = dataFrame!.rows[i][0]
-            let question = dataFrame!.rows[i][2]
-            correctAnswer = dataFrame!.rows[i][3]
-            let answer1 = dataFrame!.rows[i][j[0]]
-            let answer2 = dataFrame!.rows[i][j[1]]
-            let answer3 = dataFrame!.rows[i][j[2]]
-            let answer4 = dataFrame!.rows[i][j[3]]
-            
-            UserDefaults.standard.set(correctAnswer, forKey: "easyCorrectAnswer")
-            
-            trivia = [triviaScreen(category: category, question: question, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4)]
-
-            categoryLabel.text = trivia.first?.category
-            questionText.text = trivia.first?.question
-            titleAnswer1.setTitle(trivia.first?.answer1, for: .normal)
-            titleAnswer2.setTitle(trivia.first?.answer2, for: .normal)
-            titleAnswer3.setTitle(trivia.first?.answer3, for: .normal)
-            titleAnswer4.setTitle(trivia.first?.answer4, for: .normal)
+        var indexSaves = UserDefaults.standard.bool(forKey: "easyIndexSaves")
+        if indexSaves == true {
+            i = UserDefaults.standard.integer(forKey: "savedEasyI")
+            print("Row index: \(i!)")
+        } else {
+            i = availableIndexes.randomElement()
+            UserDefaults.standard.set(i, forKey: "savedEasyI")
+            usedIndexes.insert(i!)
+            //usedIndexes.removeAll() //comment out if i want used indexes to save
+            print(usedIndexes)
+            print("Randomly selected row index: \(i!)")
         }
+            
+        let j = answerRandomizer.shuffled()
+        print(j)
+            
+        let category = dataFrame!.rows[i!][0]
+        let question = dataFrame!.rows[i!][2]
+        correctAnswer = dataFrame!.rows[i!][3]
+        let answer1 = dataFrame!.rows[i!][j[0]]
+        let answer2 = dataFrame!.rows[i!][j[1]]
+        let answer3 = dataFrame!.rows[i!][j[2]]
+        let answer4 = dataFrame!.rows[i!][j[3]]
+            
+        UserDefaults.standard.set(correctAnswer, forKey: "easyCorrectAnswer")
+            
+        trivia = [triviaScreen(category: category, question: question, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4)]
+
+        categoryLabel.text = trivia.first?.category
+        questionText.text = trivia.first?.question
+        titleAnswer1.setTitle(trivia.first?.answer1, for: .normal)
+        titleAnswer2.setTitle(trivia.first?.answer2, for: .normal)
+        titleAnswer3.setTitle(trivia.first?.answer3, for: .normal)
+        titleAnswer4.setTitle(trivia.first?.answer4, for: .normal)
     }
 
     
     @IBAction func startClicked(_ sender: Any) {
         startCounting()
+        UserDefaults.standard.set(true, forKey: "easyIndexSaves")
         self.startButton.isHidden = true
     }
     
@@ -228,6 +241,7 @@ class EasyGameViewController: UIViewController {
     private func stopCounting() {
         timerCounting = false
         timer.invalidate()
+        UserDefaults.standard.set(false, forKey: "easyTimeSaves")
         self.blurEffect.isHidden = false
     }
     
@@ -238,14 +252,22 @@ class EasyGameViewController: UIViewController {
     }
     
     @objc func timerCounter() -> Void {
+        timeSaves = UserDefaults.standard.bool(forKey: "easyTimeSaves")
+        
+        if timeSaves == true {
+            num = UserDefaults.standard.integer(forKey: "easyTimerNum")
+            UserDefaults.standard.set(false, forKey: "easyTimeSaves")
+            print(num)
+        }
+        
         num = num + 1
+        UserDefaults.standard.set(num, forKey: "easyTimerNum")
+        
         let time = secondsToMinutesSeconds(seconds: num)
         timeString = makeTimeString(minutes: time.0, seconds: time.1)
         if timeString == "60:00" {
-            incorrect = true
-            print("Incorrect!")
             stopCounting()
-            resetTimer()
+            answerIncorrect()
         } else {
             self.timerLabel.text = timeString
         }
@@ -285,13 +307,18 @@ class EasyGameViewController: UIViewController {
     private func answerCorrect() {
         print("Correct!")
         correctTimes.append(timeString)
-        correctTimes = [] //comment out to make correct times save
+        //correctTimes = [] //comment out to make correct times save
         print(correctTimes)
         UserDefaults.standard.set(true, forKey: "easyCorrectShowing")
         UserDefaults.standard.set(true, forKey: "easyDone")
         UserDefaults.standard.set(currentDate, forKey: "easyLastDate")
+        UserDefaults.standard.set(0, forKey: "easyTimerNum")
+        UserDefaults.standard.set(false, forKey: "easyTimeSaves")
+        UserDefaults.standard.set(false, forKey: "easyIndexSaves")
+        UserDefaults.standard.set(currentDate, forKey: "easyLastReset")
         self.correctPopUp.isHidden = false
         navigationItem.setHidesBackButton(true, animated: true)
+        self.homeBtn.isHidden = true
     }
     
     private func answerIncorrect() {
@@ -300,7 +327,50 @@ class EasyGameViewController: UIViewController {
         UserDefaults.standard.set(true, forKey: "easyIncorrectShowing")
         UserDefaults.standard.set(true, forKey: "easyDone")
         UserDefaults.standard.set(currentDate, forKey: "easyLastDate")
+        UserDefaults.standard.set(0, forKey: "easyTimerNum")
+        UserDefaults.standard.set(false, forKey: "easyIndexSaves")
+        UserDefaults.standard.set(currentDate, forKey: "easyLastReset")
+        UserDefaults.standard.set(false, forKey: "easyTimeSaves")
         self.incorrectPopUp.isHidden = false
         navigationItem.setHidesBackButton(true, animated: true)
+        self.homeBtn.isHidden = true
+    }
+    
+    @IBAction func homeClicked(_ sender: Any) {
+        stopCounting()
+        goToHomescreen()
+    }
+    
+    func goToHomescreen() {
+        let controller = storyboard?.instantiateViewController(identifier: "Homescreen") as! UINavigationController
+        controller.modalPresentationStyle = .fullScreen
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true, completion: nil)
+    }
+    
+    func addShadows() {
+        self.titleAnswer1.layer.shadowColor = UIColor(red: 10/255, green: 30/255, blue: 50/255, alpha: 1).cgColor
+        self.titleAnswer1.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.titleAnswer1.layer.shadowOpacity = 1.0
+        self.titleAnswer1.layer.shadowRadius = 1.0
+        self.titleAnswer1.layer.masksToBounds = false
+        
+        self.titleAnswer2.layer.shadowColor = UIColor(red: 10/255, green: 30/255, blue: 50/255, alpha: 1).cgColor
+        self.titleAnswer2.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.titleAnswer2.layer.shadowOpacity = 1.0
+        self.titleAnswer2.layer.shadowRadius = 1.0
+        self.titleAnswer2.layer.masksToBounds = false
+        
+        self.titleAnswer3.layer.shadowColor = UIColor(red: 10/255, green: 30/255, blue: 50/255, alpha: 1).cgColor
+        self.titleAnswer3.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.titleAnswer3.layer.shadowOpacity = 1.0
+        self.titleAnswer3.layer.shadowRadius = 1.0
+        self.titleAnswer3.layer.masksToBounds = false
+        
+        self.titleAnswer4.layer.shadowColor = UIColor(red: 10/255, green: 30/255, blue: 50/255, alpha: 1).cgColor
+        self.titleAnswer4.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.titleAnswer4.layer.shadowOpacity = 1.0
+        self.titleAnswer4.layer.shadowRadius = 1.0
+        self.titleAnswer4.layer.masksToBounds = false
     }
 }
