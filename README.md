@@ -1,0 +1,4 @@
+# Athena
+
+### About Project
+Athena is an Apple game for daily trivia. The app draws from embedded CSVs of trivia questions and multiple choice answers. When the app opens there is a login and create account screen. After logging in there is an onboarding screen that has slides that list the game’s summary and general instructions. After clicking past all of the slides the screen changes and there is an interface with easy, medium, and hard modes. Each player is able to play one question for each mode each day. Once the user presses the mode of the question they are able to click a start button. A timer starts after the button is clicked and the screen displays the question with four multiple choice answers. The timer can be paused but the trivia question is blocked from view if the game is stopped. At the end whether or not you answered correctly and your time is displayed in a pop-up.
